@@ -96,3 +96,6 @@ fi
 
 #alias vim="mvim"
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+
+#anaconda3 PATH
+export PATH=~/anaconda3/bin:$PATH
