@@ -2,4 +2,4 @@
 * `.zshrc`
 * `.vimrc`
 * `.condarc`
-* `.tmux.conf
+* `.tmux.conf`
