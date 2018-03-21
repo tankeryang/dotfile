@@ -102,3 +102,9 @@ export PATH=~/anaconda3/bin:$PATH
 
 # mysql PATH
 export PATH=/usr/local/mysql/bin:$PATH
+
+# presto-cli
+export PATH=/Users/yang/Applications/CLI:$PATH
+
+# gradle
+export PATH=$PATH:/opt/gradle/gradle-4.6/bin
