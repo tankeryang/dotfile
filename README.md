@@ -3,3 +3,5 @@
 * `.vimrc`
 * `.condarc`
 * `.tmux.conf`
+* `.vscode/`
+* `.ssh/`

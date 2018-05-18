@@ -93,9 +93,14 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias vim="mvim"
 
-#alias vim="mvim"
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# homebrew
+## export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
+# ~/.local/bin
+export PATH=/Users/yang/.local/bin:$PATH
 
 # anaconda3 PATH
 export PATH=~/anaconda3/bin:$PATH
@@ -108,3 +113,9 @@ export PATH=/Users/yang/Applications/CLI:$PATH
 
 # gradle
 export PATH=$PATH:/opt/gradle/gradle-4.6/bin
+
+# java home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home
+export CLASS_PATH=$JAVA_HOME/lib
+export PATH=$PATH:$JAVA_HOME/bin
+
