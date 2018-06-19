@@ -1,3 +1,4 @@
+. /Users/yang/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 # If you come from bash you might have to change your $PATH.  
 # export PATH=$HOME/bin:/usr/local/bin:$PATH 
 # Path to your oh-my-zsh installation.
@@ -6,7 +7,7 @@ export ZSH=/Users/yang/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="awesomepanda"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -119,3 +120,12 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Hom
 export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
+
+#alias for cnpm
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+  --cache=$HOME/.npm/.cache/cnpm \
+  --disturl=https://npm.taobao.org/dist \
+  --userconfig=$HOME/.cnpmrc"
+
+# added by travis gem
+[ -f /Users/yang/.travis/travis.sh ] && source /Users/yang/.travis/travis.sh
