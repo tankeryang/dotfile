@@ -4,7 +4,7 @@
     "editor.rulers": [120],
     "python.pythonPath": "/Users/yang/anaconda3/bin/python",
     "workbench.colorTheme": "Material Theme Ocean",
-    "workbench.iconTheme": "eq-material-theme-icons-ocean",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.colorCustomizations":{
         "[One Dark Pro Vivid]": {
             "statusBar.background": "#0d1014",
@@ -32,7 +32,15 @@
     "gitlens.resultsExplorer.files.layout": "tree",
     "java.errors.incompleteClasspath.severity": "ignore",
     "gitlens.historyExplorer.enabled": true,
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "gitlens.views.compare.files.layout": "tree",
+    "gitlens.views.search.files.layout": "tree",
+    "window.zoomLevel": 0,
+    "python.jediEnabled": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
     // "python.linting.pylintArgs": [
     //     "--extension-pkg-whitelist=numpy"
     // ]
