@@ -1,10 +1,12 @@
-# If you come from bash you might have to change your $PATH.  
-# export PATH=$HOME/bin:/usr/local/bin:$PATH 
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/yang/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/yang/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME='ys'
 # ZSH_THEME='bureau'
@@ -16,18 +18,17 @@ ZSH_THEME='ys'
 # ZSH_THEME='suvash'
 # ZSH_THEME='wedisagree'
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -55,25 +56,25 @@ ZSH_THEME='ys'
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git osx sudo autojump
 )
-
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-
 source $ZSH/oh-my-zsh.sh
-
-# source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 
 # User configuration
 
@@ -83,11 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -103,55 +104,35 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias vim="mvim"
 
-# homebrew
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-## brew-perl
-PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" #cpan local::lib
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
-## brew-curl
-export PATH="/usr/local/opt/curl/bin:$PATH"
-## brew-readline
-export LDFLAGS="-L/usr/local/opt/readline/lib"
-export CPPFLAGS="-I/usr/local/opt/readline/include"
-## brew-openssl
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-## brew-sqlite3
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-## brew-icu4c
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
+#########################################################################################
+# 
+# My config
+#
+#########################################################################################
+
+# alias
+alias virtualenv=virtualenv
+alias cl=clear
 
 # ~/.local/bin
 export PATH=/Users/yang/.local/bin:$PATH
 
-# anaconda3 PATH
-# export PATH=~/anaconda3/bin:$PATH
-
 # mysql PATH
 export PATH=/usr/local/mysql/bin:$PATH
 
-# presto-cli
-export PATH=/Users/yang/Applications/CLI:$PATH
-
-# gradle
-export PATH=$PATH:/opt/gradle/gradle-4.6/bin
-
 # java home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
 export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
 # scala
-export SCALA_HOME=/Users/yang/Applications/scala-2.11.8
+export SCALA_HOME=/Users/yang/Applications/scala-2.11.12
 export PATH=$PATH:$SCALA_HOME/bin
 
 # maven
-export M2_HOME=/Users/yang/Applications/apache-maven-3.5.4
+export M2_HOME=/Users/yang/Applications/apache-maven-3.6.0
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2
 
@@ -162,17 +143,8 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --userconfig=$HOME/.cnpmrc"
 
 # added by travis gem
-[ -f /Users/yang/.travis/travis.sh ] && source /Users/yang/.travis/travis.sh
-
-# powerline
-#. /Users/yang/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+# [ -f /Users/yang/.travis/travis.sh ] && source /Users/yang/.travis/travis.sh
 
 # vimrc
 export MYVIMRC=/Users/yang/.vimrc
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/yang/.sdkman"
-[[ -s "/Users/yang/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/yang/.sdkman/bin/sdkman-init.sh"
-
-# clear
-alias cl=clear

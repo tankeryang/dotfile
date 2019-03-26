@@ -38,3 +38,9 @@ Host git.coding.net
 	IdentityFile ~/.ssh/id_rsa_coding
 	User tankeryang
 
+# ALI-EMR
+Host code.aliyun.com
+    HostName code.aliyun.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_trendy
+    User bigdata

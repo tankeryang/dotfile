@@ -2,16 +2,42 @@
 if filereadable(expand("~/.vimrc.bundles"))
 	source ~/.vimrc.bundles
 endif
+
+
 " 配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+
+" =====================================================================
 " 我的配置
+" =====================================================================
 set shell=/bin/zsh
-set rtp+=/Users/yang/.local/lib/python3.6/site-packages/powerline/bindings/vim
-" set guifont=Monaco\ for\ Powerline:h14.5
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
+
+
+" =====================================================================
+" 插件
+" =====================================================================
+"
+" airline
+let g:airline#extensions#tabline#enabled = 1
+"
+" nerdtree
+" 自动开启
+autocmd vimenter * NERDTree
+" F2 开启/关闭 nerdtree
+map <F2> :NERDTreeToggle<CR>
+" 当NERDTree为剩下的唯一窗口时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" nerdtree 宽度
+let g:NERDTreeWinSize = 40
+"
+" =====================================================================
+
+
 " 显示行号
 set number
 " 显示相对行号

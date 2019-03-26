@@ -1,7 +1,3 @@
 # my mac dot file
-* `.zshrc` --> `~/`
-* `.vimrc` --> `~/`
-* `.condarc` --> '~/'
-* `.tmux.conf` --> '~/'
-* `.vscode/setting` --> `~/Library/Application Support/Code/User`
-* `.ssh/` --> '~/'
+
+`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
