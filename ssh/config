@@ -38,6 +38,12 @@ Host git.coding.net
 	IdentityFile ~/.ssh/id_rsa_coding
 	User tankeryang
 
+Host gitlab.doctorcat.top
+	HostName gitlab.doctorcat.top
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa_coding
+	User 2252760435@qq.com
+
 # ALI-EMR
 Host code.aliyun.com
     HostName code.aliyun.com
