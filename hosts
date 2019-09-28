@@ -4,224 +4,49 @@
 # localhost is used to configure the loopback interface
 # when the system is booting.  Do not change this entry.
 ##
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
 
-# localhost
-127.0.0.1  localhost sandbox-hdp.hortonworks.com
-255.255.255.255  broadcasthost
-::1  localhost
-
-# home_PC
+# Home
 192.168.0.100 homepc
-192.168.0.111 bd1 bd1.yang.com
-192.168.0.112 bd2 bd2.yang.com
-192.168.0.113 bd3 bd3.yang.com
 
-# ali-wuhu-bdfc
-47.107.232.182 BDFC
-47.107.186.80 WUHU
+192.168.0.130 VM-cdh_master_0
+192.168.0.131 VM-cdh_slave_1
+192.168.0.132 VM-cdh_slave_2
 
-# jetbrains
-0.0.0.0 account.jetbrains.com
 
-# five plus bd-servers
-10.10.22.15 fp-bd15
-10.10.22.14 fp-bd14
-10.10.22.13 fp-bd13
-10.10.22.12 fp-bd12
-10.10.22.11 fp-bd11
-10.10.22.10 fp-bd10
-10.10.22.9 fp-bd9
-10.10.22.8 fp-bd8
-10.10.22.7 fp-bd7
-10.10.22.4 fp-bd4
-10.10.22.2 fp-bd2
-10.10.22.6 fp-bd6
-10.10.22.5 fp-bd5
-10.10.22.1 fp-bd1
-10.10.22.3 fp-bd3
-172.17.22.229 crmfe.fpsit.trendy-global.com
-172.17.22.229 new-boss.fpsit.trendy-global.com
-172.17.22.229 boss.fpsit.trendy-global.com
-172.17.22.229 azkaban.prod.fp.bd12
-172.17.22.229 azkaban.prod.fp.bd1
-172.17.22.229 azkaban.dev.fp.bd5
-172.17.22.229 presto.prod.fp.bd1
-172.17.22.229 presto.dev.fp.bd5
+# ALI-EMR
+10.4.21.175 presto.emr.gateway
+10.4.21.175 azkaban.emr.gateway
+10.4.21.175 superset.emr.gateway
+10.4.21.175 jobhistory.emr.gateway
+10.4.21.175 sparkhistory.emr.gateway
+10.4.21.175 hdfs1.emr.gateway
+10.4.21.175 hdfs2.emr.gateway
+10.4.21.175 flasto.emr.gateway
+10.4.21.175 api.emr.gateway
+10.4.21.175 docs.emr.gateway
+
+10.7.11.89 azkaban.emr.dev.gateway
+10.7.11.89 superset.emr.dev.gateway
+10.7.11.89 presto.emr.dev.gateway
+10.7.11.89 hdfs.emr.dev.gateway
+10.7.11.89 sparkhistory.emr.dev.gateway
+10.7.11.89 jobhistory.emr.dev.gateway
+
+# FP-IT
+172.17.22.229 airflow.prod.fp.bd8
+172.17.22.229 kafka-manager.prod.fp.bd8
 172.17.22.229 presto.prod.fp.bd8
-172.17.22.229 ambari.prod.fp.bd1
-172.17.22.229 ambari.prod.fp.bd11
-172.17.22.229 ambari.dev.fp.bd6
-172.17.22.229 jupyter.dev.fp.bd13
-172.17.22.229 superset.fp.bd13.com
 172.17.22.229 gitlab.fp.bd14.com
 172.17.22.229 gitlab.fpsit.trendy-global.com
-172.17.22.229 portainer.dev.fp.bd13
-172.17.22.229 flasto.query.fp.bd5
-120.76.199.112 trigger.fiveplus.com
-47.107.95.86 ali-emr
-
-# centos 5.8 hosts
-192.168.58.101 c5801.ambari.apache.org c5801
-192.168.58.102 c5802.ambari.apache.org c5802
-192.168.58.103 c5803.ambari.apache.org c5803
-192.168.58.104 c5804.ambari.apache.org c5804
-192.168.58.105 c5805.ambari.apache.org c5805
-192.168.58.106 c5806.ambari.apache.org c5806
-192.168.58.107 c5807.ambari.apache.org c5807
-192.168.58.108 c5808.ambari.apache.org c5808
-192.168.58.109 c5809.ambari.apache.org c5809
-192.168.58.110 c5810.ambari.apache.org c5810
-# centos 5.9 hosts
-192.168.59.101 c5901.ambari.apache.org c5901
-192.168.59.102 c5902.ambari.apache.org c5902
-192.168.59.103 c5903.ambari.apache.org c5903
-192.168.59.104 c5904.ambari.apache.org c5904
-192.168.59.105 c5905.ambari.apache.org c5905
-192.168.59.106 c5906.ambari.apache.org c5906
-192.168.59.107 c5907.ambari.apache.org c5907
-192.168.59.108 c5908.ambari.apache.org c5908
-192.168.59.109 c5909.ambari.apache.org c5909
-192.168.59.110 c5910.ambari.apache.org c5910
-# centos 6.4 hosts
-192.168.64.101 c6401.ambari.apache.org c6401
-192.168.64.102 c6402.ambari.apache.org c6402
-192.168.64.103 c6403.ambari.apache.org c6403
-192.168.64.104 c6404.ambari.apache.org c6404
-192.168.64.105 c6405.ambari.apache.org c6405
-192.168.64.106 c6406.ambari.apache.org c6406
-192.168.64.107 c6407.ambari.apache.org c6407
-192.168.64.108 c6408.ambari.apache.org c6408
-192.168.64.109 c6409.ambari.apache.org c6409
-192.168.64.110 c6410.ambari.apache.org c6410
-# centos 6.5 hosts
-192.168.65.101 c6501.ambari.apache.org c6501
-192.168.65.102 c6502.ambari.apache.org c6502
-192.168.65.103 c6503.ambari.apache.org c6503
-192.168.65.104 c6504.ambari.apache.org c6504
-192.168.65.105 c6505.ambari.apache.org c6505
-192.168.65.106 c6506.ambari.apache.org c6506
-192.168.65.107 c6507.ambari.apache.org c6507
-192.168.65.108 c6508.ambari.apache.org c6508
-192.168.65.109 c6509.ambari.apache.org c6509
-192.168.65.110 c6510.ambari.apache.org c6510
-# centos 6.8 hosts
-192.168.68.101 c6801.ambari.apache.org c6801
-192.168.68.102 c6802.ambari.apache.org c6802
-192.168.68.103 c6803.ambari.apache.org c6803
-192.168.68.104 c6804.ambari.apache.org c6804
-192.168.68.105 c6805.ambari.apache.org c6805
-192.168.68.106 c6806.ambari.apache.org c6806
-192.168.68.107 c6807.ambari.apache.org c6807
-192.168.68.108 c6808.ambari.apache.org c6808
-192.168.68.109 c6809.ambari.apache.org c6809
-192.168.68.110 c6810.ambari.apache.org c6810
-# suse 11 hosts
-192.168.11.101 suse1101.ambari.apache.org suse1101
-192.168.11.102 suse1102.ambari.apache.org suse1102
-192.168.11.103 suse1103.ambari.apache.org suse1103
-192.168.11.104 suse1104.ambari.apache.org suse1104
-192.168.11.105 suse1105.ambari.apache.org suse1105
-192.168.11.106 suse1106.ambari.apache.org suse1106
-192.168.11.107 suse1107.ambari.apache.org suse1107
-192.168.11.108 suse1108.ambari.apache.org suse1108
-192.168.11.109 suse1109.ambari.apache.org suse1109
-192.168.11.110 suse1110.ambari.apache.org suse1110
-# ubuntu 12.4 hosts
-192.168.12.101 u1201.ambari.apache.org u1201
-192.168.12.102 u1202.ambari.apache.org u1202
-192.168.12.103 u1203.ambari.apache.org u1203
-192.168.12.104 u1204.ambari.apache.org u1204
-192.168.12.105 u1205.ambari.apache.org u1205
-192.168.12.106 u1206.ambari.apache.org u1206
-192.168.12.107 u1207.ambari.apache.org u1207
-192.168.12.108 u1208.ambari.apache.org u1208
-192.168.12.109 u1209.ambari.apache.org u1209
-192.168.12.110 u1210.ambari.apache.org u1210
-# ubuntu 14.4 hosts
-192.168.14.101 u1401.ambari.apache.org u1401
-192.168.14.102 u1402.ambari.apache.org u1402
-192.168.14.103 u1403.ambari.apache.org u1403
-192.168.14.104 u1404.ambari.apache.org u1404
-192.168.14.105 u1405.ambari.apache.org u1405
-192.168.14.106 u1406.ambari.apache.org u1406
-192.168.14.107 u1407.ambari.apache.org u1407
-192.168.14.108 u1408.ambari.apache.org u1408
-192.168.14.109 u1409.ambari.apache.org u1409
-192.168.14.110 u1410.ambari.apache.org u1410
-# ubuntu 16.4 hosts
-192.168.16.101 u1601.ambari.apache.org u1601
-192.168.16.102 u1602.ambari.apache.org u1602
-192.168.16.103 u1603.ambari.apache.org u1603
-192.168.16.104 u1604.ambari.apache.org u1604
-192.168.16.105 u1605.ambari.apache.org u1605
-192.168.16.106 u1606.ambari.apache.org u1606
-192.168.16.107 u1607.ambari.apache.org u1607
-192.168.16.108 u1608.ambari.apache.org u1608
-192.168.16.109 u1609.ambari.apache.org u1609
-192.168.16.110 u1610.ambari.apache.org u1610
-# debian 7.6 hosts
-192.168.76.101 d7601.ambari.apache.org d7601
-192.168.76.102 d7602.ambari.apache.org d7602
-192.168.76.103 d7603.ambari.apache.org d7603
-192.168.76.104 d7604.ambari.apache.org d7604
-192.168.76.105 d7605.ambari.apache.org d7605
-192.168.76.106 d7606.ambari.apache.org d7606
-192.168.76.107 d7607.ambari.apache.org d7607
-192.168.76.108 d7608.ambari.apache.org d7608
-192.168.76.109 d7609.ambari.apache.org d7609
-192.168.76.110 d7610.ambari.apache.org d7610
-# debian 8.6 hosts
-192.168.86.101 d8601.ambari.apache.org d8601
-192.168.86.102 d8602.ambari.apache.org d8602
-192.168.86.103 d8603.ambari.apache.org d8603
-192.168.86.104 d8604.ambari.apache.org d8604
-192.168.86.105 d8605.ambari.apache.org d8605
-192.168.86.106 d8606.ambari.apache.org d8606
-192.168.86.107 d8607.ambari.apache.org d8607
-192.168.86.108 d8608.ambari.apache.org d8608
-192.168.86.109 d8609.ambari.apache.org d8609
-192.168.86.110 d8610.ambari.apache.org d8610
-# centos 7.0
-192.168.70.101 c7001.ambari.apache.org c7001
-192.168.70.102 c7002.ambari.apache.org c7002
-192.168.70.103 c7003.ambari.apache.org c7003
-192.168.70.104 c7004.ambari.apache.org c7004
-192.168.70.105 c7005.ambari.apache.org c7005
-192.168.70.106 c7006.ambari.apache.org c7006
-192.168.70.107 c7007.ambari.apache.org c7007
-192.168.70.108 c7008.ambari.apache.org c7008
-192.168.70.109 c7009.ambari.apache.org c7009
-192.168.70.110 c7010.ambari.apache.org c7010
-# centos 7.2
-192.168.72.101 c7201.ambari.apache.org c7201
-192.168.72.102 c7202.ambari.apache.org c7202
-192.168.72.103 c7203.ambari.apache.org c7203
-192.168.72.104 c7204.ambari.apache.org c7204
-192.168.72.105 c7205.ambari.apache.org c7205
-192.168.72.106 c7206.ambari.apache.org c7206
-192.168.72.107 c7207.ambari.apache.org c7207
-192.168.72.108 c7208.ambari.apache.org c7208
-192.168.72.109 c7209.ambari.apache.org c7209
-192.168.72.110 c7210.ambari.apache.org c7210
-# centos 7.3
-192.168.73.101 c7301.ambari.apache.org c7301
-192.168.73.102 c7302.ambari.apache.org c7302
-192.168.73.103 c7303.ambari.apache.org c7303
-192.168.73.104 c7304.ambari.apache.org c7304
-192.168.73.105 c7305.ambari.apache.org c7305
-192.168.73.106 c7306.ambari.apache.org c7306
-192.168.73.107 c7307.ambari.apache.org c7307
-192.168.73.108 c7308.ambari.apache.org c7308
-192.168.73.109 c7309.ambari.apache.org c7309
-192.168.73.110 c7310.ambari.apache.org c7310
-# centos 7.4
-192.168.74.101 c7401.ambari.apache.org c7401
-192.168.74.102 c7402.ambari.apache.org c7402
-192.168.74.103 c7403.ambari.apache.org c7403
-192.168.74.104 c7404.ambari.apache.org c7404
-192.168.74.105 c7405.ambari.apache.org c7405
-192.168.74.106 c7406.ambari.apache.org c7406
-192.168.74.107 c7407.ambari.apache.org c7407
-192.168.74.108 c7408.ambari.apache.org c7408
-192.168.74.109 c7409.ambari.apache.org c7409
-192.168.74.110 c7410.ambari.apache.org c7410
+172.17.22.229 crmfe.fpsit.trendy-global.com
+172.17.22.229 new-boss.fpsit.trendy-global.com
+# Added by Docker Desktop
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
+# End of section
+# BEGIN section for OpenVPN Client SSL sites
+127.94.0.1	client.openvpn.net
+# END section for OpenVPN Client SSL sites
