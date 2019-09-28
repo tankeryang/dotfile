@@ -1,19 +1,19 @@
 # github
-Host github
+Host github.com
     HostName github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_github
     User tankeryang
 
 # gitee
-Host gitee
+Host gitee.com
     HostName gitee.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_gitee
     User tankeryang
 
 # coding
-Host coding
+Host git.coding.net
     HostName git.coding.net
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_coding
