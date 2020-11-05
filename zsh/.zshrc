@@ -2,21 +2,16 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/yang/.oh-my-zsh"
+export ZSH="/home/yang/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME='ys'
-# ZSH_THEME='bureau'
-# ZSH_THEME='agnoster'
-# ZSH_THEME="avit"
-# ZSH_THEME='bira'
-# ZSH_THEME='dpoggi'
-# ZSH_THEME='mortalscumbag'
-# ZSH_THEME='suvash'
-# ZSH_THEME='wedisagree'
+ZSH_THEME="ys"
+#ZSH_THEME="bureau"
+#ZSH_THEME="dpoggi"
+#ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -34,8 +29,14 @@ ZSH_THEME='ys'
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -71,14 +72,47 @@ ZSH_THEME='ys'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git osx sudo autojump
+  git sudo autojump
 )
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export TERM=xterm-color
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export JAVA_HOME="/home/yang/Applications/jdk1.8.0_231"
+export CALSSPATH=$CLASPATH:$JAVA_HOME/lib
+export PATH=$PATH:$JAVA_HOME/bin
+
+export SCALA_HOME="/home/yang/Applications/scala-2.11.12"
+export PATH=$PATH:$SCALA_HOME/bin
+
+export M2_HOME="/home/yang/Applications/apache-maven-3.6.1"
+export CLASSPATH=$CLASSPATH:$M2_HOME/lib
+export PATH=$PATH:$M2_HOME/bin
+
+export GO_HOME="/home/yang/Applications/go"
+export GOBIN="/home/yang/Applications/go/bin"
+export PATH=$PATH:$GO_HOME/bin
+
+export HADOOP_HOME="/home/yang/Applications/apps/hadoop-2.6.0-cdh5.16.2"
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+export SPARK_HOME="/home/yang/Applications/apps/spark-2.3.3-bin-hadoop2.7"
+export PATH=$PATH:$SPARK_HOME/bin
+
+export AIRFLOW_HOME="/home/yang/Applications/apps/airflow-1.10.10"
+export SLUGIFY_USES_TEXT_UNIDECODE=yes
+export AIRFLOW_GPL_UNIDECODE=yes
+
+export MONGODB_HOME="/home/yang/Applications/apps/mongodb-linux-x86_64-ubuntu1804-4.0.11"
+export PATH=$PATH:$MONGODB_HOME/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -93,9 +127,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -104,51 +135,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-#########################################################################################
-# 
-# My config
 #
-#########################################################################################
+alias cl="clear"
 
-# alias
-alias virtualenv=virtualenv
-alias cl=clear
-
-# ~/.local/bin
-export PATH=/Users/yang/.local/bin:$PATH
-
-# mysql PATH
-export PATH=/usr/local/mysql/bin:$PATH
-
-# java home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
-export CLASS_PATH=$JAVA_HOME/lib
-export PATH=$PATH:$JAVA_HOME/bin
-
-# scala
-export SCALA_HOME=/Users/yang/Applications/scala-2.11.12
-export PATH=$PATH:$SCALA_HOME/bin
-
-# maven
-export M2_HOME=/Users/yang/Applications/apache-maven-3.6.0
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2
-
-# alias for cnpm
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --cache=$HOME/.npm/.cache/cnpm \
   --disturl=https://npm.taobao.org/dist \
   --userconfig=$HOME/.cnpmrc"
 
-# added by travis gem
-# [ -f /Users/yang/.travis/travis.sh ] && source /Users/yang/.travis/travis.sh
+alias gcz="git cz"
 
-# vimrc
-export MYVIMRC=/Users/yang/.vimrc
+export PATH=$PATH:/bin:/usr/bin
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+bindkey -v
