@@ -115,12 +115,14 @@ source $ZSH/oh-my-zsh.sh
 # alias
 alias virtualenv=virtualenv
 alias cl=clear
+alias gcz='git cz'
 
 # ~/.local/bin
 export PATH=/Users/yang/.local/bin:$PATH
 
 # mysql PATH
-export PATH=/usr/local/mysql/bin:$PATH
+export PATH=$PATH:/usr/local/opt/mysql-client/bin
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 # java home
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
@@ -152,3 +154,8 @@ export MYVIMRC=/Users/yang/.vimrc
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# you-get
+# antigen bundle soimort/you-get
+
+bindkey -v
