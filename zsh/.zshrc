@@ -148,7 +148,7 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 # [ -f /Users/yang/.travis/travis.sh ] && source /Users/yang/.travis/travis.sh
 
 # vimrc
-export MYVIMRC=/Users/yang/.vimrc
+export MYVIMRC=/Users/yang/.vim/vimrc
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
