@@ -37,5 +37,8 @@ Plug 'majutsushi/tagbar'
 " 快速跳转
 Plug 'Lokaltog/vim-easymotion'
 
+" git
+Plug 'tpope/vim-fugitive'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

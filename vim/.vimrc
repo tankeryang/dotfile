@@ -66,7 +66,7 @@ map <F2> :NERDTreeToggle<CR>
 "“ 当NERDTree为剩下的唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "” nerdtree 宽度
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 35
 
 " vim-material Oceanic
 if (has('termguicolors'))
