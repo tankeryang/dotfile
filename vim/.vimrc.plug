@@ -22,6 +22,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 
 " 模糊匹配
+" 安装 ripgrep 后通过 :LeaderF rg 进行文本搜索
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 " 主题
@@ -32,6 +33,7 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'Yggdroot/indentLine'
 
 " 文件结构
+" 依赖 ctag
 Plug 'majutsushi/tagbar'
 
 " 快速跳转

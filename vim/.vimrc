@@ -58,7 +58,11 @@ nmap <leader>+ <Plug>AirlineSelectNextTab
 " 设置切换tab的快捷键 <\> + <q> 退出当前的 tab
 nmap <leader>q :bp<cr>:bd #<cr>
 
-" nerdtree
+" LeaderF
+"" 自动生成gtags
+let g:LF_GtagsAutoGenerate = 1
+
+"nerdtree
 "“ 自动开启
 autocmd vimenter * NERDTree
 "” F2 开启/关闭 nerdtree
@@ -101,6 +105,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
 "" coc-snippets
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -130,8 +135,12 @@ set relativenumber
 set ruler
 " 显示空格和tab
 set list listchars=tab:>-,trail:·
-" 高亮显示当前行
+" 开启光亮光标行
 set cursorline
+" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=grey guibg=darkred guifg=white
+"开启高亮光标列
+set cursorcolumn
+" hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=grey guibg=darkred guifg=white
 " 开启实时搜索功能
 set incsearch
 " 高亮显示搜索结果
