@@ -61,6 +61,10 @@ nmap <leader>q :bp<cr>:bd #<cr>
 " LeaderF
 "" 自动生成gtags
 let g:LF_GtagsAutoGenerate = 1
+let g:Lf_WorkingDirectoryMode = 'AF'
+let g:Lf_RootMarkers = ['.git', '.svn', '.vscode', '.idea']
+let g:Lf_ShowHidden = 1
+let g:Lf_WindowHeight = 0.30
 
 "nerdtree
 "“ 自动开启
@@ -124,6 +128,10 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 let g:coc_snippet_next = '<tab>'
+
+" far.vim
+let g:far#enable_undo=1
+
 " =====================================================================
 
 let mapleader = ','
