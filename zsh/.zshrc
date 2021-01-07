@@ -9,14 +9,8 @@ export ZSH="/Users/yang/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME='ys'
-# ZSH_THEME='bureau'
-# ZSH_THEME='agnoster'
-# ZSH_THEME="avit"
-# ZSH_THEME='bira'
-# ZSH_THEME='dpoggi'
-# ZSH_THEME='mortalscumbag'
-# ZSH_THEME='suvash'
-# ZSH_THEME='wedisagree'
+# ZSH_THEME='re5et'
+# ZSH_THEME='steeef'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

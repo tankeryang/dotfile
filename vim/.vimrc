@@ -12,7 +12,7 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " 我的配置 字体要在终端设置
 " =====================================================================
 set shell=/bin/zsh
-" set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
+set guifont=JetBrains\ Mono\ Bold\ Nerd\ Font\ Complete\ Mono:h12
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
