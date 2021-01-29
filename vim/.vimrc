@@ -77,11 +77,17 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeWinSize = 35
 
 " vim-material Oceanic
+" let g:material_style='oceanic'
+" set background=dark
+" colorscheme vim-material
+
+" material.vim
 if (has('termguicolors'))
   set termguicolors
 endif
 let g:material_theme_style = 'ocean'
 colorscheme material
+" colorscheme darkside
 
 " indentLine 缩进
 let g:indent_guides_guide_size = 1  " 指定对齐线的尺寸
@@ -130,7 +136,11 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 
 " far.vim
-let g:far#enable_undo=1
+let g:far#enable_undo = 1
+let g:far#source = 'rg'
+
+" python-syntax
+let g:python_highlight_all = 1
 
 " =====================================================================
 

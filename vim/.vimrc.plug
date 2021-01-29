@@ -28,6 +28,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " 主题
 " Plug 'hzchirs/vim-material'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+" Plug 'rainglow/vim'
 
 " 缩进
 Plug 'Yggdroot/indentLine'
@@ -44,6 +45,9 @@ Plug 'tpope/vim-fugitive'
 
 " far Find and Replace
 Plug 'brooth/far.vim'
+
+" python syntax
+Plug 'vim-python/python-syntax'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
