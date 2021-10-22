@@ -80,7 +80,7 @@ ZSH_THEME="ys"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git sudo autojump
+  git sudo autojump zsh-syntax-highlighting zsh-autosuggestions
 )
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-color
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export JAVA_HOME="/home/yang/Applications/jdk1.8.0_231"
+export JAVA_HOME="/home/yang/Applications/java-se-8u41-ri"
 export CALSSPATH=$CLASPATH:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -101,9 +101,9 @@ export M2_HOME="/home/yang/Applications/apache-maven-3.6.1"
 export CLASSPATH=$CLASSPATH:$M2_HOME/lib
 export PATH=$PATH:$M2_HOME/bin
 
-export GO_HOME="/home/yang/Applications/go"
-export GOBIN="/home/yang/Applications/go/bin"
-export PATH=$PATH:$GO_HOME/bin
+export GOPATH="/home/yang/Applications/go"
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 export HADOOP_HOME="/home/yang/Applications/apps/hadoop-2.6.0-cdh5.16.2"
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
@@ -159,8 +159,8 @@ export PATH=$PATH:/bin:/usr/bin
 bindkey -v
 
 # zsh-user plugin
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 # starship

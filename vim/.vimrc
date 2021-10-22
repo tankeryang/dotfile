@@ -76,6 +76,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "” nerdtree 宽度
 let g:NERDTreeWinSize = 35
 
+" nerdtree-git-plugin
+" 是否显示忽略文件 1- 显示 0- 不显示 默认 0
+let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
 " vim-material Oceanic
 " let g:material_style='oceanic'
 " set background=dark

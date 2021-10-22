@@ -3,7 +3,7 @@
 Host 10.191.131.209
     HostName 10.191.131.209
     IdentitiesOnly yes
-    PreferredAuthentications publickey
+    # PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa
     ControlMaster auto
     ControlPath /tmp/%r@%h:%p
