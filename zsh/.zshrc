@@ -90,14 +90,14 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-color
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export JAVA_HOME="/home/yang/Applications/jdk1.8.0_231"
+export JAVA_HOME="/home/yang/Applications/jdk8u292-b10"
 export CALSSPATH=$CLASPATH:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
 export SCALA_HOME="/home/yang/Applications/scala-2.11.12"
 export PATH=$PATH:$SCALA_HOME/bin
 
-export M2_HOME="/home/yang/Applications/apache-maven-3.6.1"
+export M2_HOME="/home/yang/Applications/apache-maven-3.8.1"
 export CLASSPATH=$CLASSPATH:$M2_HOME/lib
 export PATH=$PATH:$M2_HOME/bin
 
