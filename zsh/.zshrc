@@ -119,7 +119,8 @@ export PATH=$PATH:/usr/local/opt/mysql-client/bin
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 # java home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -131,6 +132,11 @@ export PATH=$PATH:$SCALA_HOME/bin
 export M2_HOME=/Users/yang/Applications/apache-maven-3.6.0
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2
+
+# golang
+export GOPATH=/Users/yang/workspace/Go
+export GOPROXY=https://goproxy.cn
+
 
 # alias for cnpm
 alias cnpm="npm --registry=https://registry.npm.taobao.org \

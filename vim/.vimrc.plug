@@ -40,5 +40,11 @@ Plug 'Lokaltog/vim-easymotion'
 " git
 Plug 'tpope/vim-fugitive'
 
+" far Find and Replace
+Plug 'brooth/far.vim'
+
+" python syntax
+Plug 'vim-python/python-syntax'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
