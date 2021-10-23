@@ -13,6 +13,8 @@ Plug 'edkolev/tmuxline.vim'
 " nerdtree & icon
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+" 可以在导航目录中看到 git 版本信息
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " coc 补全
 " Use release branch (recommend)
@@ -42,12 +44,26 @@ Plug 'Lokaltog/vim-easymotion'
 
 " git
 Plug 'tpope/vim-fugitive'
+" 可以在文档中显示 git 信息
+Plug 'airblade/vim-gitgutter'
 
 " far Find and Replace
 Plug 'brooth/far.vim'
 
 " python syntax
 Plug 'vim-python/python-syntax'
+
+" golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" markdown-preview.nvim
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" terminal
+Plug 'skywind3000/vim-terminal-help'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
