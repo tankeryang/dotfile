@@ -16,6 +16,16 @@ Plug 'ryanoasis/vim-devicons'
 " 可以在导航目录中看到 git 版本信息
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" defx.vim
+" NOTE: 目录导航
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 " coc 补全
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -24,8 +34,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 
 " 模糊匹配
-" 安装 ripgrep 后通过 :LeaderF rg 进行文本搜索
+" NOTE: 安装 ripgrep 后通过 :LeaderF rg 进行文本搜索
+" CMD: sudo apt install ripgrep
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" NOTE: 安装 silversearcher-ag
+" CMD: sudo apt install silversearcher-ag
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " 主题
 " Plug 'hzchirs/vim-material'

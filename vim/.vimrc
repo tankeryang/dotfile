@@ -95,6 +95,9 @@ set clipboard+=unnamed
 " 自动保存文件
 set autowriteall
 " 开启文件类型侦测
+set lazyredraw            " improve scrolling performance when navigating through large results
+set regexpengine=1        " use old regexp engine
+set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
 filetype on
 
 
@@ -147,14 +150,17 @@ let g:Lf_ShowHidden = 1
 let g:Lf_WindowHeight = 0.30
 
 " >>>>>>>>>>>>>>>> nerdtree
-"“ 自动开启
+" 自动开启
 autocmd vimenter * NERDTree
-"” F2 开启/关闭 nerdtree
+" F2 开启/关闭 nerdtree
 map <F2> :NERDTreeToggle<CR>
-"“ 当NERDTree为剩下的唯一窗口时自动关闭
+" 当NERDTree为剩下的唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"” nerdtree 宽度
+" nerdtree 宽度
 let g:NERDTreeWinSize = 35
+
+" >>>>>>>>>>>>>>>> defx
+
 
 " >>>>>>>>>>>>>>>> nerdtree-git-plugin
 " 是否显示忽略文件 1- 显示 0- 不显示 默认 0
