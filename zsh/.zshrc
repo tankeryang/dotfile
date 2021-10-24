@@ -1,8 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/yang/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -65,9 +72,10 @@ ZSH_THEME='ys'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git osx sudo autojump
+  git osx sudo autojump zsh-syntax-highlighting zsh-autosuggestions
 )
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -112,7 +120,7 @@ alias cl=clear
 alias gcz='git cz'
 
 # ~/.local/bin
-export PATH=/Users/yang/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # mysql PATH
 export PATH=$PATH:/usr/local/opt/mysql-client/bin
@@ -125,16 +133,16 @@ export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
 # scala
-export SCALA_HOME=/Users/yang/Applications/scala-2.11.12
+export SCALA_HOME=$HOME/Applications/scala-2.11.12
 export PATH=$PATH:$SCALA_HOME/bin
 
 # maven
-export M2_HOME=/Users/yang/Applications/apache-maven-3.6.0
+export M2_HOME=$HOME/Applications/apache-maven-3.6.0
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2
 
 # golang
-export GOPATH=/Users/yang/workspace/Go
+export GOPATH=$HOME/Applications/Go
 export GOPROXY=https://goproxy.cn
 
 
@@ -145,13 +153,17 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --userconfig=$HOME/.cnpmrc"
 
 # added by travis gem
-# [ -f /Users/yang/.travis/travis.sh ] && source /Users/yang/.travis/travis.sh
+# [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # vimrc
-export MYVIMRC=/Users/yang/.vim/vimrc
+export MYVIMRC=$HOME/.vim/vimrc
+
+# macvim
+alias mvim="/Applications/MacVim.app/Contents/MacOS/Vim -g"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
+export NVM_NODEJS_ORG_MIRROR="https://npm.taobao.org/mirrors/node"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -159,3 +171,5 @@ export NVM_DIR="$HOME/.nvm"
 # antigen bundle soimort/you-get
 
 bindkey -v
+
+stty -ixon
