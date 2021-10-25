@@ -26,6 +26,15 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" defx.git
+Plug 'kristijanhusak/defx-git'
+
+" defx.icon
+Plug 'kristijanhusak/defx-icons'
+
+" vista.vim 代替tagbar
+Plug 'liuchengxu/vista.vim'
+
 " coc 补全
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -43,9 +52,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " 主题
-" Plug 'hzchirs/vim-material'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-" Plug 'rainglow/vim'
 
 " 缩进
 Plug 'Yggdroot/indentLine'
