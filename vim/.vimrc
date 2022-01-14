@@ -29,7 +29,9 @@ inoremap <silent><M-h> <Esc>^a
 nnoremap <silent><M-k> :m -2<Esc>
 " 将该行向下移动
 nnoremap <silent><M-j> :m +1<Esc>
-
+" insert 模式移动光标
+inoremap <silent><c-j> <Down>
+inoremap <silent><c-k> <Up>
 
 " =====================================================================
 " VIM 常规配置 字体要在终端设置
@@ -90,7 +92,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 " 共享剪贴板
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 " 自动保存文件
 set autowriteall
 " 开启文件类型侦测

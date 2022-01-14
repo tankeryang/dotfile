@@ -90,14 +90,14 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-color
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export JAVA_HOME="$HOME/Applications/jdk8u292-b10"
+export JAVA_HOME="$HOME/Applications/java-se-8u41-ri"
 export CALSSPATH=$CLASPATH:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
 export SCALA_HOME="$HOME/Applications/scala-2.11.12"
 export PATH=$PATH:$SCALA_HOME/bin
 
-export M2_HOME="$HOME/Applications/apache-maven-3.8.1"
+export M2_HOME="$HOME/Applications/apache-maven-3.8.4"
 export CLASSPATH=$CLASSPATH:$M2_HOME/lib
 export PATH=$PATH:$M2_HOME/bin
 
@@ -156,6 +156,8 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 alias gcz="git cz"
 
 export PATH=$PATH:/bin:/usr/bin
+
+export TERM=xterm-256color
 
 bindkey -v
 

@@ -4,6 +4,7 @@ let g:airline_powerline_fonts = 1  " 使用powerline打过补丁的字体
 let g:airline_theme = 'material'  " 设置主题
 let g:airline#extensions#keymap#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tmuxline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
        \ '0': '0 ',
        \ '1': '1 ',
