@@ -26,6 +26,10 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" nvim-tree 目录导航
+" Plug 'kyazdani42/nvim-web-devicons' " for file icons
+" Plug 'kyazdani42/nvim-tree.lua'
+
 " defx.git
 Plug 'kristijanhusak/defx-git'
 
@@ -74,6 +78,9 @@ Plug 'brooth/far.vim'
 
 " python syntax
 Plug 'vim-python/python-syntax'
+
+" tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }

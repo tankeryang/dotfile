@@ -1,6 +1,6 @@
-nnoremap <silent><F3> :<C-u>Vista!!<CR>
-vnoremap <silent><F3> <c-c>:Vista!!<cr><Esc>
-inoremap <silent><F3> <c-o>:Vista!!<cr><Esc>
+" nnoremap <silent><F3> :<C-u>Vista!!<CR>
+" vnoremap <silent><F3> <c-c>:Vista!!<cr><Esc>
+" inoremap <silent><F3> <c-o>:Vista!!<cr><Esc>
 let g:vista_sidebar_width = 40
 " How each level iou indented and what to prepend.
 " This could make the display more compact or more spacious.
@@ -14,8 +14,8 @@ let g:vista_default_executive = 'ctags'
 " instead of the default one for these filetypes when using `:Vista` without
 " specifying the executive.
 let g:vista_executive_for = {
-  \ 'cpp': 'vim_lsp',
-  \ 'php': 'vim_lsp',
+  \ 'cpp': 'coc',
+  \ 'php': 'coc',
   \ }
 " Declare the command including the executable and options used to generate ctags output
 " for some certain filetypes.The file path will be appened to your custom command.

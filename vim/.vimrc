@@ -95,6 +95,8 @@ set noswapfile
 set clipboard+=unnamedplus
 " 自动保存文件
 set autowriteall
+" 可修改文件
+set modifiable
 " 开启文件类型侦测
 set lazyredraw            " improve scrolling performance when navigating through large results
 set regexpengine=1        " use old regexp engine
@@ -109,3 +111,7 @@ let g:python_highlight_all = 1
 for f in split(glob('~/.vim/plug.vimrc.d/*.vimrc'), '\n')
     exe 'source' f
 endfor
+
+lua require('plugin-config/nvim-treesitter')
+" lua require('plugin-config/nvim-tree')
+

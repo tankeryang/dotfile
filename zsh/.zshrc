@@ -156,6 +156,7 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 alias gcz="git cz"
 
 export PATH=$PATH:/bin:/usr/bin
+export PATH=$PATH:/bin:~/.local/bin
 
 export TERM=xterm-256color
 
