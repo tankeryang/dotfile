@@ -87,6 +87,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set breakindentopt=shift:2,min:20
 " 禁用自动备份
 set nobackup
 set nowritebackup
@@ -113,5 +114,6 @@ for f in split(glob('~/.vim/plug.vimrc.d/*.vimrc'), '\n')
 endfor
 
 lua require('plugin-config/nvim-treesitter')
+lua require('dap.ext.vscode').load_launchjs()
 " lua require('plugin-config/nvim-tree')
 

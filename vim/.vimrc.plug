@@ -94,5 +94,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " terminal
 Plug 'skywind3000/vim-terminal-help'
 
+" debug
+Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap-python'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
