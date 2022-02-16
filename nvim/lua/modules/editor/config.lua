@@ -47,7 +47,7 @@ end
 
 function config.vim_easymotion()
     vim.g.EasyMotion_smartcase = 1
-    vim.api.nvim_set_keymap('n', 'ss', '<Plug>(easymotion-s2)')
+    vim.api.nvim_set_keymap('n', 'ss', '<Plug>(easymotion-s2)', { noremap = true })
 end
 
 return config

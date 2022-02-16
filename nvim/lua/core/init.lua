@@ -21,3 +21,23 @@ local createdir = function()
         end
     end
 end
+
+local leader_map = function ()
+    vim.g.mapleader = "\\"
+    vim.api.nvim_set_keymap("n", " ", "", { noremap = true })
+    vim.api.nvim_set_keymap("x", " ", "", { noremap = true })
+end
+
+local load_core = function ()
+    local pack = require("core.pack")
+    createdir()
+    leader_map()
+
+    pack.ensure_plugins()
+
+    require("core.options")
+
+    pack.load_compile()
+end
+
+load_core()

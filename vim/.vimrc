@@ -116,4 +116,3 @@ endfor
 lua require('plugin-config/nvim-treesitter')
 lua require('dap.ext.vscode').load_launchjs()
 " lua require('plugin-config/nvim-tree')
-

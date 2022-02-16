@@ -22,6 +22,6 @@ let g:Lf_NormalMap = {
 
 
 " key binds
-nnoremap F :LeaderfFunction!<cr>
-vnoremap F <c-c>:LeaderfFunction!<cr><ESC>
-inoremap F <c-o>:LeaderfFunction!<cr><ESC>
+nnoremap FF :LeaderfFunction!<cr>
+vnoremap FF <c-c>:LeaderfFunction!<cr><ESC>
+inoremap FF <c-o>:LeaderfFunction!<cr><ESC>
