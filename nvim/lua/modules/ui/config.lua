@@ -129,37 +129,67 @@ function config.lualine()
     }
 
     local defx_extension = {
-        sections = simple_sections,
+        sections = {
+            lualine_a = { "filetype" },
+            lualine_b = {},
+            lualine_c = {},
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = { "location" },
+        },
         filetypes = { "defx" }
     }
 
     require("lualine").setup({
         options = {
-            icons_enabled = true,
             theme = "catppuccin",
+            icons_enabled = true,
             disabled_filetypes = {},
-            component_separators = "|",
-            section_separators = { left = "", right = "" },
+            component_separators = { left = '', right = ''},
+            section_separators = { left = '◣', right = '◢'},
+            disabled_filetypes = {},
+            always_divide_middle = true,
         },
         sections = {
             lualine_a = { "mode" },
-            lualine_b = { { "branch" }, { "diff" }, {'diagnostics'} },
-            lualine_c = {
-                { "lsp_progress" },
-                { gps_content, cond = gps.is_available },
-            },
-            lualine_x = {
+            lualine_b = {
+                { "branch" },
+                { "diff" },
                 {
                     "diagnostics",
-                    sources = { "nvim_diagnostic" },
-                    symbols = { error = " ", warn = " ", info = " " },
-                },
+                    sources = { "coc" },
+                    sections = { "error", "warn", "info", "hint" },
+                    diagnostics_color = {
+                        -- Same values as the general color option can be used here.
+                        error = "DiagnosticError", -- Changes diagnostics' error color.
+                        warn  = "DiagnosticWarn",  -- Changes diagnostics' warn color.
+                        info  = "DiagnosticInfo",  -- Changes diagnostics' info color.
+                        hint  = "DiagnosticHint",  -- Changes diagnostics' hint color.
+                    },
+                    symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
+                    colored = true,           -- Displays diagnostics status in color if set to true.
+                    update_in_insert = true, -- Update diagnostics in insert mode.
+                    always_visible = false,   -- Show diagnostics even if there are none.
+                }
             },
+            lualine_c = {
+                { gps_content, cond = gps.is_available },
+            },
+            lualine_x = {},
             lualine_y = {
                 {
-                    "filetype",
-                    "encoding",
+                    "filename",
+                    file_status = true,
+                    path = 1,
+                    shorting_target = 40,
+                    symbols = {
+                        modified = '[✓]',      -- Text to show when the file is modified.
+                        readonly = '[×]',      -- Text to show when the file is non-modifiable or readonly.
+                        unnamed = '[No Name]', -- Text to show for unnamed buffers.
+                    }
                 },
+                { "filetype" },
+                { "encoding" },
                 {
                     "fileformat",
                     icons_enabled = true,

@@ -1,5 +1,5 @@
 " defx.vim
-map <F2> :Defx usearch=`expand('%:p')` -toggle <CR> :set modifiable <CR>
+map <F2> :Defx usearch=`expand('%:p')` -toggle <CR>
 " 自动开启
 func! ArgFunc() abort
     let s:arg = argv(0)
@@ -9,7 +9,6 @@ func! ArgFunc() abort
         return fnamemodify(s:arg, ':h')
     endif
 endfunc
-autocmd VimEnter * set modifiable
 autocmd VimEnter * Defx `ArgFunc()` -no-focus -search=`expand('%:p')`
 " 单窗口自动退出
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:defx') |

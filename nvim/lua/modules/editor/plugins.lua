@@ -32,5 +32,15 @@ editor["SmiteshP/nvim-gps"] = {
     config = conf.nvim_gps,
 }
 
+-- Git
+-- https://github.com/tpope/vim-fugitive
+editor["tpope/vim-fugitive"] = { opt = true, cmd = { "Git", "G" } }
+editor["lewis6991/gitsigns.nvim"] = {
+    opt = true,
+    event = { "BufRead", "BufNewFile" },
+    config = conf.gitsigns,
+    requires = { "nvim-lua/plenary.nvim", opt = true },
+}
+
 return editor
 

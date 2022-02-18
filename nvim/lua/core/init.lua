@@ -69,7 +69,7 @@ local load_core = function ()
 
     pack.load_compile()
 
-    vim.cmd([[colorscheme edge]])
+    vim.cmd([[colorscheme catppuccin]])
 end
 
 load_core()
