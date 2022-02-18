@@ -15,7 +15,6 @@ end
 local function load_options()
     local global_local = {
         shell = "/bin/zsh",
-        t_Co = 256,
         termguicolors = true,
         mouse = "a",
         errorbells = true,
@@ -27,7 +26,6 @@ local function load_options()
         -- 语法高亮
         encoding = "utf-8",
         fileencoding = "utf-8",
-        termencoding = "utf-8",
         viewoptions = "folds,cursor,curdir,slash,unix",
         sessionoptions = "curdir,help,tabpages,winsize",
         clipboard = "unnamedplus",
@@ -69,8 +67,6 @@ local function load_options()
         splitbelow = true,
         splitright = true,
         switchbuf = "useopen",
-        -- 去掉vi一致性的模式，解决backspace的问题
-        nocompatible = true,
         backspace = "indent,eol,start",
         diffopt = "filler,iwhite,internal,algorithm:patience",
         completeopt = "menuone,noselect",
@@ -111,8 +107,6 @@ local function load_options()
         autowriteall = true,
         -- 命令行模式自动补全
         wildmenu = true,
-        -- 禁用自动备份
-        nobackup = true,
         -- 开启文件类型侦测
         lazyredraw = true,
     }
@@ -126,7 +120,7 @@ local function load_options()
         autoindent = true,
         smartindent = true,
         -- tab
-        expandtab = false,
+        expandtab = true,
         tabstop = 4,
         shiftwidth = 4,
         softtabstop = 4,
@@ -152,12 +146,13 @@ local function load_options()
             paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
             cache_enabled = 0,
         }
-        vim.g.python_host_prog = "/usr/bin/python"
-        vim.g.python3_host_prog = "/usr/local/bin/python3"
+        -- vim.g.python_host_prog = "/usr/bin/python"
     end
     for name, value in pairs(global_local) do
         vim.o[name] = value
     end
+    -- vim.g.python3_host_prog = "/home/yang/Applications/miniconda3/envs/nvimpy38/bin/python"
+    vim.g.python3_host_prog = "/usr/bin/python3"
     bind_option(bw_local)
 end
 

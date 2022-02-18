@@ -17,21 +17,21 @@ local def_map = {
     ["v|<C-a>"] = map_cmd("<Esc>ggvG$"):with_noremap():with_silent(),
     ["i|<C-a>"] = map_cmd("<Esc>ggvG$"):with_noremap():with_silent(),
     -- 跳行首
-    ["n|<M-H>"] = map_cmd("^"):with_noremap():with_silent(),
-    ["v|<M-H>"] = map_cmd("^"):with_noremap():with_silent(),
-    ["i|<M-H>"] = map_cmd("<Esc>^a"):with_noremap():with_silent(),
+    ["n|<M-h>"] = map_cmd("^"):with_noremap():with_silent(),
+    ["v|<M-h>"] = map_cmd("^"):with_noremap():with_silent(),
+    -- ["i|<M-H>"] = map_cmd("<Esc>^a"):with_noremap():with_silent(),
     -- 跳行尾
-    ["n|<M-L>"] = map_cmd("$"):with_noremap():with_silent(),
-    ["v|<M-L>"] = map_cmd("$"):with_noremap():with_silent(),
-    ["i|<M-L>"] = map_cmd("<Esc>$a"):with_noremap():with_silent(),
+    ["n|<M-l>"] = map_cmd("$"):with_noremap():with_silent(),
+    ["v|<M-l>"] = map_cmd("$"):with_noremap():with_silent(),
+    -- ["i|<M-L>"] = map_cmd("<Esc>$a"):with_noremap():with_silent(),
     -- 跳第一行行首
-    ["n|<M-K>"] = map_cmd("gg"):with_noremap():with_silent(),
-    ["v|<M-K>"] = map_cmd("gg"):with_noremap():with_silent(),
-    ["i|<M-K>"] = map_cmd("<Esc>gga"):with_noremap():with_silent(),
+    ["n|gk"] = map_cmd("gg^"):with_noremap():with_silent(),
+    ["v|gk"] = map_cmd("gg^"):with_noremap():with_silent(),
+    -- ["i|kk"] = map_cmd("<Esc>gg^a"):with_noremap():with_silent(),
     -- 跳最后一行行尾
-    ["n|<M-J>"] = map_cmd("G$"):with_noremap():with_silent(),
-    ["v|<M-J>"] = map_cmd("G$"):with_noremap():with_silent(),
-    ["i|<M-J>"] = map_cmd("<Esc>G$a"):with_noremap():with_silent(),
+    ["n|gj"] = map_cmd("G$"):with_noremap():with_silent(),
+    ["v|gj"] = map_cmd("G$"):with_noremap():with_silent(),
+    -- ["i|jj"] = map_cmd("<Esc>G$a"):with_noremap():with_silent(),
     -- 向上移动行(块)
     ["n|<M-k>"] = map_cu("m -2"):with_noremap():with_silent(),
     ["i|<M-k>"] = map_cmd("<C-o>:m -2<CR>"):with_noremap():with_silent(),
@@ -43,10 +43,10 @@ local def_map = {
 
     -- 窗口操作
     ---- 切换窗口
-    ["n|<C-h>"] = map_cu("<C-w>h"):with_noremap():with_silent(),
-    ["n|<C-l>"] = map_cu("<C-w>l"):with_noremap():with_silent(),
-    ["n|<C-j>"] = map_cu("<C-w>j"):with_noremap():with_silent(),
-    ["n|<C-k>"] = map_cu("<C-w>k"):with_noremap():with_silent(),
+    ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_silent(),
+    ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap():with_silent(),
+    ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap():with_silent(),
+    ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap():with_silent(),
     ---- 窗口宽度调整
     ["n|<A-[>"] = map_cr("vertical resize -5"):with_noremap():with_silent(),
     ["n|<A-]>"] = map_cr("vertical resize +5"):with_noremap():with_silent(),
@@ -67,8 +67,8 @@ local def_map = {
 
     -- 视图模式操作
     ---- 缩进
-    ["v|>"] = map_cmd(">gv"),
-    ["v|<"] = map_cmd("<gv"),
+    ["v|>"] = map_cmd(">gv"):with_noremap():with_silent(),
+    ["v|<"] = map_cmd("<gv"):with_noremap():with_silent(),
 }
 
 bind.nvim_load_mapping(def_map)

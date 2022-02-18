@@ -50,4 +50,26 @@ function config.vim_easymotion()
     vim.api.nvim_set_keymap('n', 'ss', '<Plug>(easymotion-s2)', { noremap = true })
 end
 
+function config.nvim_gps()
+    require("nvim-gps").setup({
+        icons = {
+            ["class-name"] = " ", -- Classes and class-like objects
+            ["function-name"] = " ", -- Functions
+            ["method-name"] = " ", -- Methods (functions inside class-like objects)
+        },
+        languages = {
+            -- You can disable any language individually here
+            ["c"] = true,
+            ["cpp"] = true,
+            ["go"] = true,
+            ["java"] = true,
+            ["javascript"] = true,
+            ["lua"] = true,
+            ["python"] = true,
+            ["rust"] = true,
+        },
+        separator = " > ",
+    })
+end
+
 return config
