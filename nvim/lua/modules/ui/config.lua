@@ -146,7 +146,7 @@ function config.lualine()
             icons_enabled = true,
             disabled_filetypes = {},
             component_separators = { left = '', right = ''},
-            section_separators = { left = '◣', right = '◢'},
+            section_separators = { left = '', right = ''},
             disabled_filetypes = {},
             always_divide_middle = true,
         },
