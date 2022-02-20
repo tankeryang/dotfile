@@ -28,4 +28,6 @@ tools["akinsho/toggleterm.nvim"] = {
 	config = conf.toggleterm,
 }
 
+tools["RishabhRD/popfix"] = { opt = false }
+
 return tools
