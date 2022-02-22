@@ -142,10 +142,10 @@ function config.lualine()
 
     require("lualine").setup({
         options = {
-            theme = "catppuccin",
+            theme = "auto",
             icons_enabled = true,
             disabled_filetypes = {},
-            component_separators = { left = '', right = ''},
+            component_separators = { left = '│', right = '│'},
             section_separators = { left = '', right = ''},
             disabled_filetypes = {},
             always_divide_middle = true,
@@ -253,7 +253,7 @@ function config.nvim_bufferline()
                 return s
                 end,
             always_show_bufferline = true,
-            separator_style = "thick",
+            separator_style = "thin",
             offsets = {
                 {
                     filetype = "defx",

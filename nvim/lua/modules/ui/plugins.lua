@@ -14,6 +14,8 @@ ui["catppuccin/nvim"] = {
     as = "catppuccin",
     config = conf.catppuccin,
 }
+
+-- 底部状态栏
 -- https://github.com/nvim-lualine/lualine.nvim
 ui["hoob3rt/lualine.nvim"] = {
     opt = false,
@@ -21,6 +23,8 @@ ui["hoob3rt/lualine.nvim"] = {
     config = conf.lualine,
 }
 ui["arkav/lualine-lsp-progress"] = { opt = false, after = "nvim-gps" }
+
+-- 标签栏
 -- https://github.com/akinsho/bufferline.nvim
 ui["akinsho/nvim-bufferline.lua"] = {
     opt = true,

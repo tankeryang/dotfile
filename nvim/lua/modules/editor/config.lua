@@ -6,34 +6,37 @@ local sessions_dir = vim.fn.stdpath("data") .. "/sessions/"
 function config.nvim_treesitter()
     require("nvim-treesitter.configs").setup {
       -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-      ensure_installed = "maintained",
-      -- Install languages synchronously (only applied to `ensure_installed`)
-      sync_install = false,
-      -- List of parsers to ignore installing
-      -- ignore_install = { "javascript" },
-      highlight = {
-        -- `false` will disable the whole extension
-        enable = true,
-        -- list of language that will be disabled
-        -- disable = { "c", "rust" },
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<CR>',
-          node_incremental = '<CR>',
-          node_decremental = '<BS>',
-          scope_incremental = '<TAB>',
+        ensure_installed = "maintained",
+        -- Install languages synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+        -- List of parsers to ignore installing
+        -- ignore_install = { "javascript" },
+        highlight = {
+            -- `false` will disable the whole extension
+            enable = true,
+            -- list of language that will be disabled
+            -- disable = { "c", "rust" },
+            -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+            -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+            -- Using this option may slow down your editor, and you may see some duplicate highlights.
+            -- Instead of true it can also be a list of languages
+            additional_vim_regex_highlighting = false,
+        },
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+            init_selection = '<CR>',
+            node_incremental = '<CR>',
+            node_decremental = '<BS>',
+            scope_incremental = '<TAB>',
+            }
+        },
+        indent = {
+            enable = true
+        },
+        matchup = {
+            enable = true
         }
-      },
-      indent = {
-        enable = true
-      }
     }
 end
 
@@ -43,11 +46,6 @@ function config.vista()
             source ~/.config/nvim/lua/modules/editor/vimrc/vista.vimrc
         ]],
         false)
-end
-
-function config.vim_easymotion()
-    vim.g.EasyMotion_smartcase = 1
-    vim.api.nvim_set_keymap('n', 'ss', '<Plug>(easymotion-s2)', { noremap = true })
 end
 
 function config.nvim_gps()
@@ -165,6 +163,31 @@ function config.gitsigns()
             map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end
     })
+end
+
+function config.vim_cursorwod()
+    vim.api.nvim_command("augroup user_plugin_cursorword")
+    vim.api.nvim_command("autocmd!")
+    vim.api.nvim_command(
+        "autocmd FileType NvimTree,lspsagafinder,dashboard, defxlet b:cursorword = 0")
+    vim.api.nvim_command(
+        "autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif")
+    vim.api.nvim_command("autocmd InsertEnter * let b:cursorword = 0")
+    vim.api.nvim_command("autocmd InsertLeave * let b:cursorword = 1")
+    vim.api.nvim_command("augroup END")
+end
+
+function config.autotag()
+    require("nvim-ts-autotag").setup({
+        filetypes = {
+            "html", "xml", "javascript", "typescriptreact", "javascriptreact",
+            "vue"
+        }
+    })
+end
+
+function config.matchup()
+    vim.cmd [[let g:matchup_matchparen_offscreen = {'method': 'popup'}]]
 end
 
 return config

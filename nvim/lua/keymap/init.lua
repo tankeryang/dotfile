@@ -22,6 +22,14 @@ local plug_map = {
     ["n|<leader>8"] = map_cr("BufferLineGoToBuffer 8"):with_noremap():with_silent(),
     ["n|<leader>9"] = map_cr("BufferLineGoToBuffer 9"):with_noremap():with_silent(),
     ["n|<leader>q"] = map_cu("bp<CR>:bd #"):with_noremap():with_silent(),
+    -- Hop
+    ["n|<leader>w"] = map_cu("HopWord"):with_noremap(),
+    ["n|<leader>j"] = map_cu("HopLine"):with_noremap(),
+    ["n|<leader>k"] = map_cu("HopLine"):with_noremap(),
+    ["n|<leader>s"] = map_cu("HopChar1"):with_noremap(),
+    ["n|<leader>ss"] = map_cu("HopChar2"):with_noremap(),
+    -- Plugin MarkdownPreview
+    ["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 }
 
 bind.nvim_load_mapping(plug_map)

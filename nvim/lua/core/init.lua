@@ -69,7 +69,7 @@ local load_core = function ()
 
     pack.load_compile()
 
-    vim.cmd([[colorscheme catppuccin]])
+    vim.cmd([[colorscheme kanagawa]])
 end
 
 load_core()

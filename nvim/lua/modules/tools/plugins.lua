@@ -1,6 +1,7 @@
 local tools = {}
 local conf = require("modules.tools.config")
 
+-- 查找工具
 tools["Yggdroot/LeaderF"] = {
     opt = false,
     run = "./install.sh",
@@ -23,9 +24,27 @@ tools["skywind3000/vim-terminal-help"] = {
 }
 -- 终端工具
 tools["akinsho/toggleterm.nvim"] = {
-	opt = true,
-	event = "BufRead",
-	config = conf.toggleterm,
+    opt = true,
+    event = "BufRead",
+    config = conf.toggleterm,
+}
+
+tools["folke/which-key.nvim"] = {
+    opt = true,
+    keys = ",",
+    config = function() require("which-key").setup {} end
+}
+
+tools["gelguy/wilder.nvim"] = {
+	event = "CmdlineEnter",
+    run = ":UpdateRemotePlugins",
+	config = conf.wilder,
+	requires = { { "romgrk/fzy-lua-native", after = "wilder.nvim" } },
+}
+
+tools["nathom/filetype.nvim"] = {
+    opt = false,
+    config = conf.filetype,
 }
 
 return tools

@@ -17,6 +17,7 @@ let g:vista_executive_for = {
   \ 'cpp': 'coc',
   \ 'php': 'coc',
   \ 'lua': 'coc',
+  \ 'yaml': 'coc',
   \ }
 " Declare the command including the executable and options used to generate ctags output
 " for some certain filetypes.The file path will be appened to your custom command.
