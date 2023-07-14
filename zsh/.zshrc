@@ -90,11 +90,11 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-color
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export JAVA_HOME="$HOME/Applications/java-se-8u41-ri"
+export JAVA_HOME="$HOME/Applications/jdk8u362-b09"
 export CALSSPATH=$CLASPATH:$JAVA_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin
 
-export SCALA_HOME="$HOME/Applications/scala-2.11.12"
+export SCALA_HOME="$HOME/Applications/scala-2.13.10"
 export PATH=$PATH:$SCALA_HOME/bin
 
 export M2_HOME="$HOME/Applications/apache-maven-3.8.4"

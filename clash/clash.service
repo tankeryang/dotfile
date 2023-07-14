@@ -1,0 +1,16 @@
+[Unit]
+Description=Clash daemon, A rule-based proxy in Go.
+After=network-online.target
+Documentation=https://github.com/Dreamacro/clash/wiki
+
+[Service]
+OOMScoreAdjust=-1000
+Type=simple
+Restart=on-failure
+ExecStart=/home/yang/Applications/clash/clash-start.sh
+ExecStop=/home/yang/Applications/clash/clash-stop.sh
+Environment="HOME=/home/yang"
+Environment="CLASH_URL=https://apiv2.lipulai.com/api_version2/xwjdofxdkgcrewq9?clash=1&extend=1"
+
+[Install]
+WantedBy=multi-user.target

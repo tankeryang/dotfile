@@ -1,0 +1,4 @@
+- `wget -O config.yaml '订阅链接' --no-check-certificate`
+- `sudo ln -s /home/yang/Applications/clash/clash.service /etc/systemd/system/clash.service`
+- `systemctl enable clash`
+- `systemctl restart clash`

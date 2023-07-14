@@ -77,6 +77,17 @@ Host happ03
     User yangyang07
     Port 32200
 
+Host v2dn445
+    HostName 7.33.67.156
+    IdentitiesOnly yes
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ControlMaster auto
+    ControlPath /tmp/%r@%h:%p
+    ServerAliveInterval 86400
+    User yangyang07
+    Port 32200
+
 Host puppet.hadoop.163.gz
     HostName 10.160.180.17
     IdentitiesOnly yes
@@ -88,6 +99,27 @@ Host puppet.hadoop.163.gz
     User yangyang07
     Port 32000
 
+Host 54.222.136.202
+    HostName 54.222.136.202
+    IdentitiesOnly yes
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ControlMaster auto
+    ControlPath /tmp/%r@%h:%p
+    ServerAliveInterval 86400
+    User yangyang07
+    Port 32200
+
+Host 7.34.149.82
+    HostName 7.34.149.82
+    IdentitiesOnly yes
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ControlMaster auto
+    ControlPath /tmp/%r@%h:%p
+    ServerAliveInterval 86400
+    User yangyang07
+    Port 32200
 
 #================ GIT =================
 # github
@@ -128,6 +160,13 @@ HOST cloudweb.gameyw.netease.com:18080
 # gitlab-nie
 Host gitlab.nie.netease.com
     HostName gitlab.nie.netease.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_gitlab_nie
+    User yangyang07
+
+# git-opd
+Host git-opd.nie.netease.com
+    HostName git-opd.nie.netease.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_gitlab_nie
     User yangyang07
