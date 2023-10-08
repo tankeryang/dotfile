@@ -11,6 +11,17 @@ Host 10.191.131.209
     User yangyang07
     Port 32200
 
+Host 10.214.5.10
+    HostName 10.214.5.10
+    IdentitiesOnly yes
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ControlMaster auto
+    ControlPath /tmp/%r@%h:%p
+    ServerAliveInterval 86400
+    User yangyang07
+    Port 32200
+
 Host 10.214.14.6
     HostName 10.214.14.6
     IdentitiesOnly yes
