@@ -86,5 +86,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " terminal
 Plug 'skywind3000/vim-terminal-help'
 
+" 高亮
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

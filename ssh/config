@@ -19,31 +19,12 @@ Host git.coding.net
     IdentityFile ~/.ssh/id_rsa_coding
     User tankeryang
 
-# ALI-EMR
-Host code.aliyun.com
-    HostName code.aliyun.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_trendy
-    User bigdata
 
-# NTES
-Host 10.170.16.20
-    HostName 10.170.16.20
+# =======================================
+# Dstory
+Host git.datastory.com.cn
+    HostName git.datastory.com.cn
     PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_ntes
-    User yangyang07
-    Port 32000
+    IdentityFile ~/.ssh/id_rsa_dstory
+    User yangyang
 
-Host 10.191.131.209
-    HostName 10.191.131.209
-    IdentityFile ~/.ssh/id_rsa_ntes
-    PreferredAuthentications publickey
-    User yangyang07
-    Port 32200
-
-Host gitlab.nie.netease.com
-    HostName gitlab.nie.netease.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_ntes
-    User yangyang07
-    Port 32200
