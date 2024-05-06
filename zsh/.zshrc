@@ -37,6 +37,10 @@ antigen bundle wintermi/zsh-lsd
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 antigen theme ys
+# antigen theme jispwoso
+# antigen theme frisk
+# antigen theme spaceship-prompt/spaceship-prompt
+# eval "$(starship init zsh)"  # brew install starship
 
 # Apply antigen configuration
 antigen apply
@@ -58,6 +62,7 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --cache=$HOME/.npm/.cache/cnpm \
   --disturl=https://npm.taobao.org/dist \
   --userconfig=$HOME/.cnpmrc"
+alias nvid=neovide
 
 # ~/.local/bin
 export PATH=$HOME/.local/bin:$PATH
@@ -96,6 +101,6 @@ export NVM_NODEJS_ORG_MIRROR="https://npm.taobao.org/mirrors/node"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-bindkey -v
+# bindkey -v
 
-stty -ixon
+# stty -ixon
