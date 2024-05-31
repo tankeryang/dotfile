@@ -1,0 +1,137 @@
+# 根据 schema 提供自动补全
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$docker_context\
+$conda\
+$time\
+$line_break$character
+"""
+
+# 在提示符之间插入空行
+add_newline = true
+
+# 将提示符中的 '❯' 替换为 '➜'
+# [character] # 此组件名称为 'character'
+# # success_symbol = '[➜](bold green)' # 将 'success_symbol' 字段设置成颜色为 'bold green' 的 '➜'  
+# success_symbol = '[\$](bold green)' # 将 'success_symbol' 字段设置成颜色为 'bold green' 的 '➜'  
+
+[os]
+disabled = false
+format = '[$symbol]($style) '
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = 'bold yellow'
+style_root = 'bold red'
+format = '[$user]($style) @ '
+
+[hostname]
+disabled = false
+ssh_only = false
+style = 'bold green'
+format = '[$ssh_symbol$hostname]($style) in '
+
+[directory]
+style = 'bold blue'
+fish_style_pwd_dir_length = 1
+
+[git_branch]
+symbol = ""
+format = 'on [$symbol $branch(:$remote_branch)]($style) '
+
+[nodejs]
+symbol = ""
+
+[c]
+symbol = " "
+
+[rust]
+symbol = ""
+
+[golang]
+symbol = ""
+style = 'bold blue'
+format = 'via [$symbol ($version)]($style)'
+
+[php]
+symbol = ""
+
+[java]
+symbol = " "
+
+[kotlin]
+symbol = ""
+
+[haskell]
+symbol = ""
+
+[python]
+symbol = ""
+style = 'bold yellow'
+format = 'via [${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[docker_context]
+symbol = ""
+format = '[$symbol $context]($style)'
+
+[conda]
+format = ' [$symbol$environment]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+vimcmd_symbol = '[←](bold green)'
+vimcmd_replace_one_symbol = '[←](bold purple)'
+vimcmd_replace_symbol = '[←](bold purple)'
+vimcmd_visual_symbol = '[←](bold yellow)'
+
+# 禁用 'package' 组件，将其隐藏
+[package]
+disabled = true

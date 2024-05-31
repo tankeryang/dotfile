@@ -6,4 +6,4 @@
 > brew install antigen
 ```
 
-2. Refer `.zshrc` file
+2. ln `.zshrc` file

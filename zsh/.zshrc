@@ -1,106 +1,103 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ~/.local/bin
+export PATH=$HOME/.local/bin:$PATH
+# /usr/local/bin
+export PATH=/usr/local/bin:$PATH
+# homebrew
+# Apple Sillicon Mac homebrew install in /opt/homebrew
+export PATH=/opt/homebrew/bin:$PATH
+export HOMEBREW=$(brew --prefix)
 
-# Use antigen to manage config plugins
-source /usr/local/share/antigen/antigen.zsh
-export ANTIGEN="$HOME/.antigen"
+# Z-Shell/ZI ======================================================================================================
+# > https://wiki.zshell.dev/
+# source <(curl -sL init.zshell.dev); zzinit
+if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
+  command mkdir -p "$HOME/.zi" && command chmod go-rwX "$HOME/.zi"
+  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+source "$HOME/.zi/bin/zi.zsh"
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
+zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
+zi light-mode for \
+  z-shell/z-a-meta-plugins \
+  @annexes @zunit
 
-# Use ohmyzsh
-antigen use oh-my-zsh
-# Path to your oh-my-zsh installation.
-# export ZSH="$HOME/.oh-my-zsh"
+# Theme ===========================================================================================================
 
-# Load plugins
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(
-#   git osx sudo autojump zsh-syntax-highlighting zsh-autosuggestions
-# )
-# [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-antigen bundle git
-antigen bundle osx
-antigen bundle sudo
-antigen bundle autojump
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle Aloxaf/fzf-tab
-# 1. brew install lsd
-# 2. git clone https://github.com/wintermi/zsh-lsd.git $ANTIGEN/bundle/wintermi/zsh-lsd
-antigen bundle wintermi/zsh-lsd
+zi ice as"command" from"gh-r" \
+  atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+  atpull"%atclone" src"init.zsh"
+zi light starship/starship
 
-# Load the theme.
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-antigen theme ys
-# antigen theme jispwoso
-# antigen theme frisk
-# antigen theme spaceship-prompt/spaceship-prompt
-# eval "$(starship init zsh)"  # brew install starship
+# Plugins =========================================================================================================
 
-# Apply antigen configuration
-antigen apply
-# source $ZSH/oh-my-zsh.sh
+zi wait lucid light-mode for \
+  atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+     z-shell/F-Sy-H \
+  blockf \
+     zsh-users/zsh-completions \
+  atload"!_zsh_autosuggest_start" \
+     zsh-users/zsh-autosuggestions \
+  Aloxaf/fzf-tab \
+  wfxr/forgit \
+  has'lsd' \
+    tankeryang/zsh-lsd \
+  OMZL::clipboard.zsh \
+  OMZL::history.zsh \
+  OMZL::directories.zsh \
+  OMZL::grep.zsh \
+  OMZP::autojump
 
-# User configuration
-#########################################################################################
-# 
-# My config
-#
-#########################################################################################
+# User configuration ==============================================================================================
 
 # alias
 alias virtualenv=virtualenv
 alias cl=clear
-alias gcz='git cz'
-alias gui=gitui
+alias gcz='czg'  # npm -g install cgz
+alias gui=gitui  # brew install gitui
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --cache=$HOME/.npm/.cache/cnpm \
   --disturl=https://npm.taobao.org/dist \
   --userconfig=$HOME/.cnpmrc"
-alias nvid=neovide
-
-# ~/.local/bin
-export PATH=$HOME/.local/bin:$PATH
-
-# /usr/local/bin
-export PATH=/usr/local/bin:$PATH
-
-# mysql PATH
-export PATH=$PATH:/usr/local/opt/mysql-client/bin
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+alias nvid=neovide  # brew install neovide
+alias df=duf  # brew install duf
+alias du=dust  # brew install dust
 
 # java home
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-export CLASS_PATH=$JAVA_HOME/lib
-export PATH=$PATH:$JAVA_HOME/bin
-
-# scala
-export SCALA_HOME=$HOME/Applications/scala-2.13.10
-export PATH=$PATH:$SCALA_HOME/bin
-
-# maven
-export M2_HOME=$HOME/Applications/apache-maven-3.8.4
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2
+export JAVA_8_HOME=$HOME/Applications/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64
+export CLASS_PATH=$JAVA_8_HOME/lib
+export PATH=$JAVA_8_HOME/bin:$PATH
 
 # golang
-export GOPATH=$HOME/Applications/go-1.22.2
+export GOPATH=$HOME/Applications/go-1.22.3
 export GOBIN=$GOPATH/bin
 export GOPROXY=https://goproxy.cn
 export PATH=$PATH:$GOBIN
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-export NVM_NODEJS_ORG_MIRROR="https://npm.taobao.org/mirrors/node"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# maven
+export M2_HOME=$HOME/Applications/apache-maven-3.9.6
+export M2=$M2_HOME/bin
+export PATH=$PATH:$M2
 
-# bindkey -v
+# fnm
+eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
 
-# stty -ixon
+# mysql
+# mysql-client is keg-only, which means it was not symlinked into /opt/homebrew,
+# because it conflicts with mysql (which contains client libraries).
+# If you need to have mysql-client first in your PATH, run:
+export PATH=${HOMEBREW}/opt/mysql-client/bin:$PATH
+# For compilers to find mysql-client you may need to set:
+export LDFLAGS="-L$HOMEBREW/opt/mysql-client/lib"
+export CPPFLAGS="-I$HOMEBREW/opt/mysql-client/include"
+
+# esc to use vim mode
+bindkey -v
+
+stty -ixon
