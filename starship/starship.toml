@@ -58,7 +58,7 @@ RedHatEnterprise = "󱄛"
 
 [username]
 show_always = true
-style_user = 'bold yellow'
+style_user = 'bold cyan'
 style_root = 'bold red'
 format = '[$user]($style) @ '
 
@@ -87,7 +87,7 @@ symbol = ""
 
 [golang]
 symbol = ""
-style = 'bold blue'
+style = 'bold cyan'
 format = 'via [$symbol ($version)]($style)'
 
 [php]
