@@ -7,7 +7,7 @@ TERM = "xterm-256color"
 padding.x = 10
 padding.y = 10
 
-decorations = "Buttonless"
+decorations = "full"
 opacity = 0.8
 blur = true
 
@@ -18,8 +18,12 @@ option_as_alt = "Both"
 
 [font]
 normal.family = "JetbrainsMono Nerd Font"
+# normal.family = "MesloLGL Nerd Font Mono"
 size = 12
 
 [scrolling]
 history = 100000
 multiplier = 4
+
+[cursor]
+style.blinking = "Always"

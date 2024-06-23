@@ -95,6 +95,7 @@ symbol = ""
 
 [java]
 symbol = " "
+style = 'bold 208'
 
 [kotlin]
 symbol = ""

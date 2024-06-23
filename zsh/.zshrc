@@ -8,6 +8,7 @@ export PATH=/usr/local/bin:$PATH
 # Apple Sillicon Mac homebrew install in /opt/homebrew
 export PATH=/opt/homebrew/bin:$PATH
 export HOMEBREW=$(brew --prefix)
+export HOMEBREW_NO_AUTO_UPDATE=1  # disable brew auto update
 
 # Z-Shell/ZI ======================================================================================================
 # > https://wiki.zshell.dev/
@@ -48,6 +49,8 @@ zi wait lucid light-mode for \
   wfxr/forgit \
   has'lsd' \
     tankeryang/zsh-lsd \
+  has'eza' \
+    tankeryang/zsh-eza \
   OMZL::clipboard.zsh \
   OMZL::history.zsh \
   OMZL::directories.zsh \
@@ -68,22 +71,25 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 alias nvid=neovide  # brew install neovide
 alias df=duf  # brew install duf
 alias du=dust  # brew install dust
+alias h="history -i"
 
 # java home
 export JAVA_8_HOME=$HOME/Applications/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64
-export CLASS_PATH=$JAVA_8_HOME/lib
-export PATH=$JAVA_8_HOME/bin:$PATH
+export JAVA_17_HOME=$HOME/Applications/graalvm-jdk-17.0.11+7.1/Contents/Home
+export CLASS_PATH=$JAVA_17_HOME/lib
+export PATH=$JAVA_17_HOME/bin:$PATH
 
 # golang
-export GOPATH=$HOME/Applications/go-1.22.3
+export GO_1_22_3_PATH=$HOME/Applications/go-1.22.3
+export GOPATH=$GO_1_22_3_PATH
 export GOBIN=$GOPATH/bin
 export GOPROXY=https://goproxy.cn
-export PATH=$PATH:$GOBIN
+export PATH=$GOBIN:$PATH
 
 # maven
 export M2_HOME=$HOME/Applications/apache-maven-3.9.6
 export M2=$M2_HOME/bin
-export PATH=$PATH:$M2
+export PATH=$M2:$PATH
 
 # fnm
 eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
@@ -97,7 +103,15 @@ export PATH=${HOMEBREW}/opt/mysql-client/bin:$PATH
 export LDFLAGS="-L$HOMEBREW/opt/mysql-client/lib"
 export CPPFLAGS="-I$HOMEBREW/opt/mysql-client/include"
 
+# perl5
+PATH="/Users/yang/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/yang/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/yang/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/yang/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/yang/perl5"; export PERL_MM_OPT;
+
 # esc to use vim mode
 bindkey -v
 
 stty -ixon
+
