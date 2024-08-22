@@ -76,8 +76,9 @@ alias h="history -i"
 # java home
 export JAVA_8_HOME=$HOME/Applications/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64
 export JAVA_17_HOME=$HOME/Applications/graalvm-jdk-17.0.11+7.1/Contents/Home
-export CLASS_PATH=$JAVA_17_HOME/lib
-export PATH=$JAVA_17_HOME/bin:$PATH
+export JAVA_HOME=$JAVA_17_HOME
+export CLASS_PATH=$JAVA_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
 
 # golang
 export GO_1_22_3_PATH=$HOME/Applications/go-1.22.3
@@ -109,6 +110,16 @@ PERL5LIB="/Users/yang/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB
 PERL_LOCAL_LIB_ROOT="/Users/yang/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/yang/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/yang/perl5"; export PERL_MM_OPT;
+
+# rust
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+export CARGO_UNSTABLE_SPARSE_REGISTRY=true
+export RUSTUP_HOME=$HOME/Applications/rust/.rustup
+export CARGO_HOME=$HOME/Applications/rust/.cargo
+export PATH=$CARGO_HOME/bin:$RUSTUP_HOME/bin:$PATH
+
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
 # esc to use vim mode
 bindkey -v

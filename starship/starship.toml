@@ -84,6 +84,7 @@ symbol = " "
 
 [rust]
 symbol = ""
+format = 'via [$symbol ($version)]($style)'
 
 [golang]
 symbol = ""
