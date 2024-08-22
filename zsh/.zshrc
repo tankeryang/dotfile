@@ -4,11 +4,6 @@
 export PATH=$HOME/.local/bin:$PATH
 # /usr/local/bin
 export PATH=/usr/local/bin:$PATH
-# homebrew
-# Apple Sillicon Mac homebrew install in /opt/homebrew
-export PATH=/opt/homebrew/bin:$PATH
-export HOMEBREW=$(brew --prefix)
-export HOMEBREW_NO_AUTO_UPDATE=1  # disable brew auto update
 
 # Z-Shell/ZI ======================================================================================================
 # > https://wiki.zshell.dev/
@@ -93,7 +88,12 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
 # fnm
-eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
+FNM_PATH="/home/yang/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+# eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
 
 # mysql
 # mysql-client is keg-only, which means it was not symlinked into /opt/homebrew,
@@ -119,10 +119,23 @@ export RUSTUP_HOME=$HOME/Applications/rust/.rustup
 export CARGO_HOME=$HOME/Applications/rust/.cargo
 export PATH=$CARGO_HOME/bin:$RUSTUP_HOME/bin:$PATH
 
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
-
 # esc to use vim mode
 bindkey -v
 
 stty -ixon
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/yang/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/yang/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/yang/Applications/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/yang/Applications/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
