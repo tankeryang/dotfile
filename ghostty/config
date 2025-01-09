@@ -1,0 +1,24 @@
+# [Theme]
+theme = catppuccin-mocha
+
+# [Window]
+window-height = 45
+window-width = 175
+term = xterm-256color
+
+# [Key]
+keybind = ctrl+z=close_surface
+keybind = ctrl+d=new_split:right
+macos-option-as-alt = true
+
+# [Font]
+font-family = JetbrainsMono Nerd Font Mono
+font-family-bold = JetBrainsMono NFM Bold
+font-size = 12
+font-thicken = true
+
+# [Cursor]
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = true
+cursor-opacity = 1

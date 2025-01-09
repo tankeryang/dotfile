@@ -119,10 +119,27 @@ export RUSTUP_HOME=$HOME/Applications/rust/.rustup
 export CARGO_HOME=$HOME/Applications/rust/.cargo
 export PATH=$CARGO_HOME/bin:$RUSTUP_HOME/bin:$PATH
 
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+# android tools
+export ANDROID_PLATFORM_TOOLS="$HOME/Library/Android/sdk/platform-tools"
+export PATH=$ANDROID_PLATFORM_TOOLS:$PATH
 
 # esc to use vim mode
 bindkey -v
 
 stty -ixon
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/yang/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/yang/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/yang/Applications/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/yang/Applications/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

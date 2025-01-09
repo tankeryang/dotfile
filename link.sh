@@ -22,3 +22,7 @@ if [ ! -d "$HOME/.config/alacritty/themes" ] then
 	git clone https://github.com/alacritty/alacritty-theme $HOME/.config/alacritty/themes
 fi
 ln -s $DOTFILE/alacritty/alacritty.toml $HOME/.config/alacritty
+
+echo "link ghostty config ..."
+ln -s $DOTFILE/ghostty $HOME/.config
+

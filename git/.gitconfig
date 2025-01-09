@@ -21,3 +21,5 @@
 # `git dlog` to show `git log -p` with difftastic.
 [alias]
         dlog = "-c diff.external=difft log -p --ext-diff"
+[core]
+	autocrlf = input

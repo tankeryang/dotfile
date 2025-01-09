@@ -28,3 +28,9 @@ Host git.datastory.com.cn
     IdentityFile ~/.ssh/id_rsa_dstory
     User yangyang
 
+# Dstory
+Host 172.18.128.130
+    HostName 172.18.128.130
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_dstory
+    User root
