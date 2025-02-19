@@ -115,10 +115,15 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
 # fnm
+if [ "$OSTYPE" = "$LINUX" ]; then
+  FNM_PATH="/home/yang/.local/share/fnm"
+  if [ -d "$FNM_PATH" ]; then
+    export PATH="$FNM_PATH:$PATH"
+  fi
+fi
 if type fnm > /dev/null 2>&1; then
   eval "$(fnm env --use-on-cd)"
 fi
-# eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
 
 # mysql
 # mysql-client is keg-only, which means it was not symlinked into /opt/homebrew,
