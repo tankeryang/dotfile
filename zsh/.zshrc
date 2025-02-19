@@ -1,3 +1,8 @@
+# Var
+OSTYPE=$(uname -s)
+MACOS="Darwin"
+LINUX="Linux"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ~/.local/bin
@@ -6,9 +11,11 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 # homebrew
 # Apple Sillicon Mac homebrew install in /opt/homebrew
-export PATH=/opt/homebrew/bin:$PATH
-export HOMEBREW=$(brew --prefix)
-export HOMEBREW_NO_AUTO_UPDATE=1  # disable brew auto update
+if [ "$OSTYPE" = "$MACOS" ]; then
+    export PATH=/opt/homebrew/bin:$PATH
+    export HOMEBREW=$(brew --prefix)
+    export HOMEBREW_NO_AUTO_UPDATE=1  # disable brew auto update
+fi
 
 # Z-Shell/ZI ======================================================================================================
 # > https://wiki.zshell.dev/
@@ -60,22 +67,37 @@ zi wait lucid light-mode for \
 # User configuration ==============================================================================================
 
 # alias
-alias virtualenv=virtualenv
 alias cl=clear
-alias gcz='czg'  # npm -g install cgz
-alias gui=gitui  # brew install gitui
+alias h="history -i"
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --cache=$HOME/.npm/.cache/cnpm \
   --disturl=https://npm.taobao.org/dist \
   --userconfig=$HOME/.cnpmrc"
-alias nvid=neovide  # brew install neovide
-alias df=duf  # brew install duf
-alias du=dust  # brew install dust
-alias h="history -i"
+if type czg &>/dev/null; then
+  alias gcz='czg'
+fi # npm -g install cgz
+if type gitui &>/dev/null; then
+  alias gui=gitui
+fi # brew install gitui
+if type neovide &>/dev/null; then
+  alias nvid=neovide
+fi # brew install neovide
+if type duf &>/dev/null; then
+  alias df=duf
+fi # brew install duf
+if type dust &>/dev/null; then
+  alias du=dust
+fi # brew install dust
 
-# java home
-export JAVA_8_HOME=$HOME/Applications/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64
-export JAVA_17_HOME=$HOME/Applications/graalvm-jdk-17.0.11+7.1/Contents/Home
+# java
+if [ "$OSTYPE" = "$MACOS" ]; then
+  export JAVA_8_HOME=$HOME/Applications/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64
+  export JAVA_17_HOME=$HOME/Applications/graalvm-jdk-17.0.11+7.1/Contents/Home
+elif [ "$OSTYPE" = "$LINUX" ]; then
+  export JAVA_8_HOME=$HOME/Applications/jdk8u422-b05
+  export JAVA_11_HOME=$HOME/Applications/jdk-11.0.26+4
+  export JAVA_17_HOME=$HOME/Applications/jdk-17.0.12+7
+fi
 export JAVA_HOME=$JAVA_17_HOME
 export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
@@ -93,23 +115,36 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
 # fnm
-eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
+if type fnm > /dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
+fi
+# eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
 
 # mysql
 # mysql-client is keg-only, which means it was not symlinked into /opt/homebrew,
 # because it conflicts with mysql (which contains client libraries).
 # If you need to have mysql-client first in your PATH, run:
-export PATH=${HOMEBREW}/opt/mysql-client/bin:$PATH
-# For compilers to find mysql-client you may need to set:
-export LDFLAGS="-L$HOMEBREW/opt/mysql-client/lib"
-export CPPFLAGS="-I$HOMEBREW/opt/mysql-client/include"
+if [ "$OSTYPE" = "$MACOS" ]; then
+  MYSQL_CLIENT_PATH="${HOMEBREW}/opt/mysql-client"
+  if [ -d "$MYSQL_CLIENT_PATH" ]; then
+    export PATH=${MYSQL_CLIENT_PATH}/bin:$PATH
+    # For compilers to find mysql-client you may need to set:
+    export LDFLAGS="-L${MYSQL_CLIENT_PATH}/lib"
+    export CPPFLAGS="-I${MYSQL_CLIENT_PATH}/include"
+  fi
+fi
 
 # perl5
-PATH="/Users/yang/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/yang/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/yang/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/yang/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/yang/perl5"; export PERL_MM_OPT;
+if [ "$OSTYPE" = "$MACOS" ]; then
+  PERL_PATH="${HOME}/perl5"
+  if [ -d "$PERL_PATH" ]; then
+    export PATH=${PERL_PATH}/bin:$PATH
+    export PERL5LIB=${PERL_PATH}/lib/perl5
+    export PERL_LOCAL_LIB_ROOT=${PERL_PATH}
+    export PERL_MB_OPT="--install_base \"${PERL_PATH}\""
+    export PERL_MM_OPT="INSTALL_BASE=${PERL_PATH}"
+  fi
+fi
 
 # rust
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
@@ -120,8 +155,18 @@ export CARGO_HOME=$HOME/Applications/rust/.cargo
 export PATH=$CARGO_HOME/bin:$RUSTUP_HOME/bin:$PATH
 
 # android tools
-export ANDROID_PLATFORM_TOOLS="$HOME/Library/Android/sdk/platform-tools"
-export PATH=$ANDROID_PLATFORM_TOOLS:$PATH
+if [ "$OSTYPE" = "$MACOS" ]; then
+  export ANDROID_PLATFORM_TOOLS="$HOME/Library/Android/sdk/platform-tools"
+  export PATH=$ANDROID_PLATFORM_TOOLS:$PATH
+fi
+
+# nvim
+if [ "$OSTYPE" = "$LINUX" ]; then
+  NVIM_PATH="${HOME}/Applications/nvim-linux64"
+  if [ -d "$NVIM_PATH" ]; then
+    export PATH=${NVIM_PATH}/bin:$PATH
+  fi
+fi
 
 # esc to use vim mode
 bindkey -v
@@ -130,14 +175,14 @@ stty -ixon
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/yang/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('${HOME}/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/yang/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/yang/Applications/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "${HOME}/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "${HOME}/Applications/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/yang/Applications/miniconda3/bin:$PATH"
+        export PATH="${HOME}/Applications/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
