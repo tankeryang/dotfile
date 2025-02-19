@@ -55,7 +55,7 @@ zi wait lucid light-mode for \
 # User configuration ==============================================================================================
 
 # alias
-alias virtualenv=virtualenv
+alias venv=virtualenv
 alias cl=clear
 alias gcz='czg'  # npm -g install cgz
 alias gui=gitui  # brew install gitui
@@ -69,9 +69,10 @@ alias du=dust  # brew install dust
 alias h="history -i"
 
 # java home
-export JAVA_8_HOME=$HOME/Applications/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64
-export JAVA_17_HOME=$HOME/Applications/graalvm-jdk-17.0.11+7.1/Contents/Home
-export JAVA_HOME=$JAVA_17_HOME
+export JAVA_8_HOME=$HOME/Applications/jdk8u422-b05
+export JAVA_11_HOME=$HOME/Applications/jdk-11.0.26+4
+export JAVA_17_HOME=$HOME/Applications/jdk-17.0.12+7
+export JAVA_HOME=$JAVA_11_HOME
 export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -83,7 +84,7 @@ export GOPROXY=https://goproxy.cn
 export PATH=$GOBIN:$PATH
 
 # maven
-export M2_HOME=$HOME/Applications/apache-maven-3.9.6
+export M2_HOME=$HOME/Applications/apache-maven-3.9.9
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
@@ -91,25 +92,8 @@ export PATH=$M2:$PATH
 FNM_PATH="/home/yang/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
+  eval "`fnm env --use-on-cd`"
 fi
-# eval "$(fnm env --use-on-cd)" > /dev/null 2>&1
-
-# mysql
-# mysql-client is keg-only, which means it was not symlinked into /opt/homebrew,
-# because it conflicts with mysql (which contains client libraries).
-# If you need to have mysql-client first in your PATH, run:
-export PATH=${HOMEBREW}/opt/mysql-client/bin:$PATH
-# For compilers to find mysql-client you may need to set:
-export LDFLAGS="-L$HOMEBREW/opt/mysql-client/lib"
-export CPPFLAGS="-I$HOMEBREW/opt/mysql-client/include"
-
-# perl5
-PATH="/Users/yang/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/yang/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/yang/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/yang/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/yang/perl5"; export PERL_MM_OPT;
 
 # rust
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
