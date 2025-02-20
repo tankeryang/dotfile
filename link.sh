@@ -1,28 +1,31 @@
-DOTFILE=$(pwd)
+if [ ! -d "$HOME/.config" ]; then
+	mkdir $HOME/.config
+fi
 
-echo "link .zshrc ..."
-mv $HOME/.zshrc $HOME/.zshrc.bak.$(date +"%Y%m%d%H%M%S")
-ln -s $DOTFILE/zsh/.zshrc $HOME
+echo "stow zsh"
+if [ -f "$HOME/.zshrc" ]; then
+  mv $HOME/.zshrc $HOME/.zshrc.bak.$(date +"%Y%m%d%H%M%S")
+fi
+stow zsh -t $HOME
 
-echo "link ssh config ..."
-ln -s $DOTFILE/ssh/config $HOME/.ssh
+echo "stow ssh"
+stow ssh -t $HOME
 
-echo "link .condarc ..."
-ln -s $DOTFILE/conda/.condarc $HOME
+echo "stow conda"
+stow conda -t $HOME
 
-echo "link pip config ..."
-ln -s $DOTFILE/pip $HOME/.config
+echo "stow pip"
+stow pip -t $HOME
 
-echo "link starship.toml ..."
-ln -s $DOTFILE/starship/starship.toml $HOME/.config
+echo "stow ghostty"
+stow ghostty -t $HOME
 
-echo "link alacritty.toml ..."
+echo "stow starship"
+stow starship -t $HOME
+
+echo "stow alacritty"
 mkdir -p $HOME/.config/alacritty
 if [ ! -d "$HOME/.config/alacritty/themes" ] then
 	git clone https://github.com/alacritty/alacritty-theme $HOME/.config/alacritty/themes
 fi
-ln -s $DOTFILE/alacritty/alacritty.toml $HOME/.config/alacritty
-
-echo "link ghostty config ..."
-ln -s $DOTFILE/ghostty $HOME/.config
-
+stow alacritty -t $HOME
