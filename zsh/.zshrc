@@ -73,21 +73,19 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --cache=$HOME/.npm/.cache/cnpm \
   --disturl=https://npm.taobao.org/dist \
   --userconfig=$HOME/.cnpmrc"
-if type czg &>/dev/null; then
-  alias gcz='czg'
-fi # npm -g install cgz
+alias gcz=czg # npm -g install czg
 if type gitui &>/dev/null; then
   alias gui=gitui
-fi # brew install gitui
+fi # brew install gitui / cargo install gitui --locked
 if type neovide &>/dev/null; then
   alias nvid=neovide
 fi # brew install neovide
 if type duf &>/dev/null; then
   alias df=duf
-fi # brew install duf
+fi # brew install duf / apt install duf
 if type dust &>/dev/null; then
   alias du=dust
-fi # brew install dust
+fi # brew install dust / cargo install du-dust
 
 # java
 if [ "$OSTYPE" = "$MACOS" ]; then
@@ -171,6 +169,12 @@ if [ "$OSTYPE" = "$LINUX" ]; then
   if [ -d "$NVIM_PATH" ]; then
     export PATH=$NVIM_PATH/bin:$PATH
   fi
+fi
+
+# cmake
+if [ "$OSTYPE" = "$LINUX" ]; then
+  CMAKE_HOME=$HOME/Applications/cmake-3.31.5-linux-x86_64
+  export PATH=$CMAKE_HOME/bin:$PATH
 fi
 
 # esc to use vim mode
