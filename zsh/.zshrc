@@ -116,7 +116,7 @@ export PATH=$M2:$PATH
 
 # fnm
 if [ "$OSTYPE" = "$LINUX" ]; then
-  FNM_PATH="/home/yang/.local/share/fnm"
+  FNM_PATH="$HOME/.local/share/fnm"
   if [ -d "$FNM_PATH" ]; then
     export PATH="$FNM_PATH:$PATH"
   fi
@@ -130,24 +130,24 @@ fi
 # because it conflicts with mysql (which contains client libraries).
 # If you need to have mysql-client first in your PATH, run:
 if [ "$OSTYPE" = "$MACOS" ]; then
-  MYSQL_CLIENT_PATH="${HOMEBREW}/opt/mysql-client"
+  MYSQL_CLIENT_PATH="$HOMEBREW/opt/mysql-client"
   if [ -d "$MYSQL_CLIENT_PATH" ]; then
-    export PATH=${MYSQL_CLIENT_PATH}/bin:$PATH
+    export PATH=$MYSQL_CLIENT_PATH/bin:$PATH
     # For compilers to find mysql-client you may need to set:
-    export LDFLAGS="-L${MYSQL_CLIENT_PATH}/lib"
-    export CPPFLAGS="-I${MYSQL_CLIENT_PATH}/include"
+    export LDFLAGS="-L$MYSQL_CLIENT_PATH/lib"
+    export CPPFLAGS="-I$MYSQL_CLIENT_PATH/include"
   fi
 fi
 
 # perl5
 if [ "$OSTYPE" = "$MACOS" ]; then
-  PERL_PATH="${HOME}/perl5"
+  PERL_PATH="$HOME/perl5"
   if [ -d "$PERL_PATH" ]; then
-    export PATH=${PERL_PATH}/bin:$PATH
-    export PERL5LIB=${PERL_PATH}/lib/perl5
-    export PERL_LOCAL_LIB_ROOT=${PERL_PATH}
-    export PERL_MB_OPT="--install_base \"${PERL_PATH}\""
-    export PERL_MM_OPT="INSTALL_BASE=${PERL_PATH}"
+    export PATH=$PERL_PATH/bin:$PATH
+    export PERL5LIB=$PERL_PATH/lib/perl5
+    export PERL_LOCAL_LIB_ROOT=$PERL_PATH
+    export PERL_MB_OPT="--install_base \"$PERL_PATH\""
+    export PERL_MM_OPT="INSTALL_BASE=$PERL_PATH"
   fi
 fi
 
@@ -169,7 +169,7 @@ fi
 if [ "$OSTYPE" = "$LINUX" ]; then
   NVIM_PATH="${HOME}/Applications/nvim-linux64"
   if [ -d "$NVIM_PATH" ]; then
-    export PATH=${NVIM_PATH}/bin:$PATH
+    export PATH=$NVIM_PATH/bin:$PATH
   fi
 fi
 
@@ -180,14 +180,14 @@ stty -ixon
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('${HOME}/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "${HOME}/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "${HOME}/Applications/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/Applications/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="${HOME}/Applications/miniconda3/bin:$PATH"
+        export PATH="$HOME/Applications/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
