@@ -11,6 +11,9 @@ stow zsh -t $HOME
 echo "stow ssh"
 stow ssh -t $HOME
 
+echo "stow git"
+stow git -t $HOME
+
 echo "stow conda"
 stow conda -t $HOME
 
