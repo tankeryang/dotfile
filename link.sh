@@ -4,7 +4,7 @@ fi
 
 echo "stow zsh"
 if [ -f "$HOME/.zshrc" ]; then
-  mv $HOME/.zshrc $HOME/.zshrc.bak.$(date +"%Y%m%d%H%M%S")
+	mv $HOME/.zshrc $HOME/.zshrc.bak.$(date +"%Y%m%d%H%M%S")
 fi
 stow zsh -t $HOME
 
@@ -28,7 +28,7 @@ stow starship -t $HOME
 
 echo "stow alacritty"
 mkdir -p $HOME/.config/alacritty
-if [ ! -d "$HOME/.config/alacritty/themes" ] then
+if [ ! -d "$HOME/.config/alacritty/themes" ]; then
 	git clone https://github.com/alacritty/alacritty-theme $HOME/.config/alacritty/themes
 fi
 stow alacritty -t $HOME
