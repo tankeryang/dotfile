@@ -89,8 +89,10 @@ fi # brew install dust / cargo install du-dust
 
 # java
 if [ "$OSTYPE" = "$MACOS" ]; then
-  export JAVA_8_HOME=$HOME/Applications/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64
-  export JAVA_17_HOME=$HOME/Applications/graalvm-jdk-17.0.11+7.1/Contents/Home
+  export JAVA_8_HOME=$HOME/Applications/jdk/zulu8.84.0.15-ca-jdk8.0.442-macosx_aarch64
+  export JAVA_11_HOME=$HOME/Applications/jdk/jdk-11.0.26+4/Contents/Home
+  export JAVA_17_HOME=$HOME/Applications/jdk/jdk-17.0.14+7/Contents/Home
+  export JAVA_21_HOME=$HOME/Applications/jdk/jdk-21.0.6+7/Contents/Home
 elif [ "$OSTYPE" = "$LINUX" ]; then
   export JAVA_8_HOME=$HOME/Applications/jdk8u422-b05
   export JAVA_11_HOME=$HOME/Applications/jdk-11.0.26+4
@@ -101,16 +103,39 @@ export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
 
 # golang
-export GO_1_22_3_PATH=$HOME/Applications/go-1.22.3
+export GO_1_22_3_PATH=$HOME/Applications/go/go-1.22.3
 export GOPATH=$GO_1_22_3_PATH
 export GOBIN=$GOPATH/bin
 export GOPROXY=https://goproxy.cn
 export PATH=$GOBIN:$PATH
 
-# maven
-export M2_HOME=$HOME/Applications/apache-maven-3.9.6
-export M2=$M2_HOME/bin
-export PATH=$M2:$PATH
+# rust
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+export CARGO_UNSTABLE_SPARSE_REGISTRY=true
+export RUSTUP_HOME=$HOME/Applications/rust/.rustup
+export CARGO_HOME=$HOME/Applications/rust/.cargo
+export PATH=$CARGO_HOME/bin:$RUSTUP_HOME/bin:$PATH
+
+# perl5
+if [ "$OSTYPE" = "$MACOS" ]; then
+  PERL_PATH="$HOME/perl5"
+  if [ -d "$PERL_PATH" ]; then
+    export PATH=$PERL_PATH/bin:$PATH
+    export PERL5LIB=$PERL_PATH/lib/perl5
+    export PERL_LOCAL_LIB_ROOT=$PERL_PATH
+    export PERL_MB_OPT="--install_base \"$PERL_PATH\""
+    export PERL_MM_OPT="INSTALL_BASE=$PERL_PATH"
+  fi
+fi
+
+# nvim
+if [ "$OSTYPE" = "$LINUX" ]; then
+  NVIM_PATH="${HOME}/Applications/nvim-linux64"
+  if [ -d "$NVIM_PATH" ]; then
+    export PATH=$NVIM_PATH/bin:$PATH
+  fi
+fi
 
 # fnm
 if [ "$OSTYPE" = "$LINUX" ]; then
@@ -122,6 +147,16 @@ fi
 if type fnm > /dev/null 2>&1; then
   eval "$(fnm env --use-on-cd)"
 fi
+
+# maven
+if [ "$OSTYPE" = "$MACOS" ]; then
+  M2_VERSION="3.9.6"
+elif [ "$OSTYPE" = "$LINUX" ]; then
+  M2_VERSION="3.9.9"
+fi
+export M2_HOME=$HOME/Applications/apache-maven-$M2_VERSION
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
 
 # mysql
 # mysql-client is keg-only, which means it was not symlinked into /opt/homebrew,
@@ -137,38 +172,10 @@ if [ "$OSTYPE" = "$MACOS" ]; then
   fi
 fi
 
-# perl5
-if [ "$OSTYPE" = "$MACOS" ]; then
-  PERL_PATH="$HOME/perl5"
-  if [ -d "$PERL_PATH" ]; then
-    export PATH=$PERL_PATH/bin:$PATH
-    export PERL5LIB=$PERL_PATH/lib/perl5
-    export PERL_LOCAL_LIB_ROOT=$PERL_PATH
-    export PERL_MB_OPT="--install_base \"$PERL_PATH\""
-    export PERL_MM_OPT="INSTALL_BASE=$PERL_PATH"
-  fi
-fi
-
-# rust
-export RUSTUP_DIST_SERVER="https://rsproxy.cn"
-export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-export CARGO_UNSTABLE_SPARSE_REGISTRY=true
-export RUSTUP_HOME=$HOME/Applications/rust/.rustup
-export CARGO_HOME=$HOME/Applications/rust/.cargo
-export PATH=$CARGO_HOME/bin:$RUSTUP_HOME/bin:$PATH
-
 # android tools
 if [ "$OSTYPE" = "$MACOS" ]; then
   export ANDROID_PLATFORM_TOOLS="$HOME/Library/Android/sdk/platform-tools"
   export PATH=$ANDROID_PLATFORM_TOOLS:$PATH
-fi
-
-# nvim
-if [ "$OSTYPE" = "$LINUX" ]; then
-  NVIM_PATH="${HOME}/Applications/nvim-linux64"
-  if [ -d "$NVIM_PATH" ]; then
-    export PATH=$NVIM_PATH/bin:$PATH
-  fi
 fi
 
 # cmake
