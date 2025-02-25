@@ -94,9 +94,9 @@ if [ "$OSTYPE" = "$MACOS" ]; then
   export JAVA_17_HOME=$HOME/Applications/jdk/jdk-17.0.14+7/Contents/Home
   export JAVA_21_HOME=$HOME/Applications/jdk/jdk-21.0.6+7/Contents/Home
 elif [ "$OSTYPE" = "$LINUX" ]; then
-  export JAVA_8_HOME=$HOME/Applications/jdk8u422-b05
-  export JAVA_11_HOME=$HOME/Applications/jdk-11.0.26+4
-  export JAVA_17_HOME=$HOME/Applications/jdk-17.0.12+7
+  export JAVA_8_HOME=$HOME/Applications/jdk/jdk8u422-b05
+  export JAVA_11_HOME=$HOME/Applications/jdk/jdk-11.0.26+4
+  export JAVA_17_HOME=$HOME/Applications/jdk/jdk-17.0.12+7
 fi
 export JAVA_HOME=$JAVA_17_HOME
 export CLASS_PATH=$JAVA_HOME/lib
