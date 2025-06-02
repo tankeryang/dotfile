@@ -9,49 +9,33 @@ LINUX="Linux"
 export PATH=$HOME/.local/bin:$PATH
 # /usr/local/bin
 export PATH=/usr/local/bin:$PATH
-# homebrew
-# Apple Sillicon Mac homebrew install in /opt/homebrew
+# HomeBrew
+# NOTICE: Apple Sillicon Mac homebrew install in `/opt/homebrew`
 if [ "$OSTYPE" = "$MACOS" ]; then
     export PATH=/opt/homebrew/bin:$PATH
     export HOMEBREW=$(brew --prefix)
     export HOMEBREW_NO_AUTO_UPDATE=1  # disable brew auto update
 fi
 
-# Z-Shell/ZI ======================================================================================================
-# > https://wiki.zshell.dev/
-# source <(curl -sL init.zshell.dev); zzinit
-if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
-  command mkdir -p "$HOME/.zi" && command chmod go-rwX "$HOME/.zi"
-  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-source "$HOME/.zi/bin/zi.zsh"
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
-# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
-zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
-zi light-mode for \
-  z-shell/z-a-meta-plugins \
-  @annexes @zunit
+
+# Zinit ===========================================================================================================
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "$ZINIT_HOME/zinit.zsh"
+
 
 # Theme ===========================================================================================================
+eval "$(starship init zsh)"  # brew install starship
 
-zi ice as"command" from"gh-r" \
-  atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-  atpull"%atclone" src"init.zsh"
-zi light starship/starship
 
 # Plugins =========================================================================================================
+zinit load zdharma-continuum/history-search-multi-word
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zdharma-continuum/fast-syntax-highlighting
 
-zi wait lucid light-mode for \
-  atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-     z-shell/F-Sy-H \
-  blockf \
-     zsh-users/zsh-completions \
-  atload"!_zsh_autosuggest_start" \
-     zsh-users/zsh-autosuggestions \
+zinit wait lucid for light-mode \
   Aloxaf/fzf-tab \
   wfxr/forgit \
   has'lsd' \
@@ -63,6 +47,10 @@ zi wait lucid light-mode for \
   OMZL::directories.zsh \
   OMZL::grep.zsh \
   OMZP::autojump
+
+autoload -U compinit && compinit
+zinit cdreplay -q
+
 
 # User configuration ==============================================================================================
 
@@ -184,8 +172,10 @@ if [ "$OSTYPE" = "$LINUX" ]; then
   export PATH=$CMAKE_HOME/bin:$PATH
 fi
 
-# esc to use vim mode
+# esc to use vim mode and bind other key
 bindkey -v
+bindkey "^p" history-search-backward
+bindkey "^n" history-search-forward
 
 stty -ixon
 

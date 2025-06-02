@@ -8,7 +8,7 @@ term = xterm-256color
 
 # [Key]
 keybind = ctrl+z=close_surface
-keybind = ctrl+d=new_split:right
+# keybind = ctrl+d=new_split:right
 macos-option-as-alt = true
 
 # [Font]
