@@ -14,11 +14,17 @@ stow ssh -t $HOME
 echo "stow git"
 stow git -t $HOME
 
+echo "stow tmux"
+stow tmux -t $HOME
+
 echo "stow conda"
 stow conda -t $HOME
 
 echo "stow pip"
 stow pip -t $HOME
+
+echo "stow uv"
+stow uv -t $HOME
 
 echo "stow ghostty"
 stow ghostty -t $HOME

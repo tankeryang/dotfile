@@ -92,7 +92,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 # golang
 export GO_1_22_3_PATH=$HOME/Applications/go/go-1.22.3
-export GOPATH=$GO_1_22_3_PATH
+export GO_1_24_3_PATH=$HOME/Applications/go/go-1.24.3
+export GOPATH=$GO_1_24_3_PATH
 export GOBIN=$GOPATH/bin
 export GOPROXY=https://goproxy.cn
 export PATH=$GOBIN:$PATH
@@ -179,18 +180,24 @@ bindkey "^n" history-search-forward
 
 stty -ixon
 
+MINICONDA3_HOME=$HOME/Applications/miniconda3
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/Applications/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('${MINICONDA3_HOME}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/Applications/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/Applications/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$MINICONDA3_HOME/etc/profile.d/conda.sh" ]; then
+        . "$MINICONDA3_HOME/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/Applications/miniconda3/bin:$PATH"
+        export PATH="$MINICONDA3_HOME/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=($HOME/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
