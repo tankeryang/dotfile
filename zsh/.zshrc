@@ -91,9 +91,8 @@ export CLASS_PATH=$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
 
 # golang
-export GO_1_22_3_PATH=$HOME/Applications/go/go-1.22.3
-export GO_1_24_3_PATH=$HOME/Applications/go/go-1.24.3
-export GOPATH=$GO_1_24_3_PATH
+export GO_1_24_4_PATH=$HOME/Applications/go/go-1.24.4
+export GOPATH=$GO_1_24_4_PATH
 export GOBIN=$GOPATH/bin
 export GOPROXY=https://goproxy.cn
 export PATH=$GOBIN:$PATH
